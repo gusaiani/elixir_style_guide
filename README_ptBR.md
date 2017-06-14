@@ -4,23 +4,23 @@
 
 * __[Introdução](#introducao)__
 * __[O Guia de Estilo Elixir](#o-guia)__
-  * [Source Code Layout](#source-code-layout)
-  * [Syntax](#syntax)
-  * [Naming](#naming)
-  * [Comments](#comments)
-    * [Comment Annotations](#comment-annotations)
-  * [Modules](#modules)
-  * [Documentation](#documentation)
+  * [Layout do Código](#layout-codigo)
+  * [Sintaxe](#sintaxe)
+  * [Nomenclatura](#nomenclatura)
+  * [Comentários](#comentarios)
+    * [Anotaçóes em Comentários](#anotacoes-comentarios)
+  * [Módulos](#modulos)
+  * [Documentação](#documentacao)
   * [Typespecs](#typespecs)
   * [Structs](#structs)
-  * [Exceptions](#exceptions)
-  * _Collections_
+  * [Exceções](#excecoes)
+  * _Coleções_
   * [Strings](#strings)
-  * _Regular Expressions_
-  * [Metaprogramming](#metaprogramming)
-  * [Testing](#testing)
-  * [Alternative Style Guides](#alternative-style-guides)
-  * [Tools](#tools)
+  * _Expressões Regulares_
+  * [Metaprogramação](#metaprogramming)
+  * [Testes](#testes)
+  * [Guias de Estilo Alternativos](#alternative-style-guides)
+  * [Ferramentas](#ferramentas)
 * __[Getting Involved](#getting-involved)__
   * [Contributing](#contributing)
   * [Spread the Word](#spread-the-word)
@@ -28,7 +28,7 @@
   * [License](#license)
   * [Attribution](#attribution)
 
-## Prelude
+## Introdução
 
 > Liquid architecture. It's like jazz — you improvise, you work together, you
 > play off each other, you make something, they make something.
@@ -39,7 +39,7 @@ Style matters.
 [Elixir] has plenty of style but like all languages it can be stifled.
 Don't stifle the style.
 
-## The Guide
+## O Guia
 
 This is community style guide for the [Elixir programming language][Elixir].
 Please feel free to make pull requests and suggestions, and be a part of
@@ -298,7 +298,7 @@ Translations of the guide are available in the following languages:
   End each file with a newline.
   <sup>[[link](#newline-eof)]</sup>
 
-### Syntax
+### Sintaxe
 
 * <a name="parentheses"></a>
   Use parentheses when a `def` has arguments, and omit them when it doesn't.
@@ -577,7 +577,7 @@ Translations of the guide are available in the following languages:
   end
   ```
 
-### Naming
+### Nomenclatura
 
 * <a name="snake-case"></a>
   Use `snake_case` for atoms, functions and variables.
@@ -673,7 +673,7 @@ Translations of the guide are available in the following languages:
   defp do_sum([head | tail], total), do: do_sum(tail, head + total)
   ```
 
-### Comments
+### Comentários
 
 * <a name="expressive-code"></a>
   Write expressive code and try to convey your program's intention through
@@ -704,7 +704,7 @@ Translations of the guide are available in the following languages:
   # Use punctuation for complete sentences.
   ```
 
-#### Comment Annotations
+#### Anotaçóes em Comentários
 
 * <a name="annotations"></a>
   Annotations should usually be written on the line immediately above the
@@ -763,7 +763,7 @@ Translations of the guide are available in the following languages:
   document them in your project's `README` or similar.
   <sup>[[link](#custom-keywords)]</sup>
 
-### Modules
+### Módulos
 
 * <a name="one-module-per-file"></a>
   Use one module per file unless the module is only used internally by another
@@ -901,7 +901,7 @@ Translations of the guide are available in the following languages:
   end
   ```
 
-### Documentation
+### Documentação
 
 Documentation in Elixir (when read either in `iex` with `h` or generated with
 [ExDoc]) uses the [Module Attributes] `@moduledoc` and `@doc`.
@@ -1015,7 +1015,7 @@ Typespecs are notation for declaring types and specifications, for
 documentation or for the static analysis tool Dialyzer.
 
 Custom types should be defined at the top of the module with the other
-directives (see [Modules](#modules)).
+directives (see [Modules](#modulos)).
 
 * <a name="typedocs"></a>
   Place `@typedoc` and `@type` definitions together, and separate each
@@ -1123,7 +1123,7 @@ directives (see [Modules](#modules)).
             qux: false, quux: 1
   ```
 
-### Exceptions
+### Exceções
 
 * <a name="exception-names"></a>
   Make exception names end with a trailing `Error`.
@@ -1158,7 +1158,7 @@ directives (see [Modules](#modules)).
   raise ArgumentError, "this is not valid"
   ```
 
-### Collections
+### Coleções
 
 _No guidelines for collections have been added yet._
 
@@ -1176,17 +1176,17 @@ _No guidelines for collections have been added yet._
   "my" <> _rest = "my string"
   ```
 
-### Regular Expressions
+### Expressões Regulares
 
 _No guidelines for regular expressions have been added yet._
 
-### Metaprogramming
+### Metaprogramação
 
 * <a name="avoid-metaprogramming"></a>
   Avoid needless metaprogramming.
   <sup>[[link](#avoid-metaprogramming)]</sup>
 
-### Testing
+### Testes
 
 * <a name="testing-assert-order"></a>
   When writing [ExUnit] assertions, be consistent with the order of the expected
@@ -1208,7 +1208,7 @@ _No guidelines for regular expressions have been added yet._
   assert {:ok, expected} = actual_function(3)
   ```
 
-### Alternative Style Guides
+### Guias de Estilo Alternativos
 
 * [Aleksei Magusev's Elixir Style Guide](https://github.com/lexmag/elixir-style-guide#readme)
   — An opinionated Elixir style guide stemming from the coding style practiced
@@ -1222,7 +1222,7 @@ _No guidelines for regular expressions have been added yet._
   — Style Guide for the Elixir language, implemented by
   [Credo](http://credo-ci.org) static code analysis tool.
 
-### Tools
+### Ferramentas
 
 Refer to [Awesome Elixir][Code Analysis] for libraries and tools that can help
 with code analysis and style linting.
