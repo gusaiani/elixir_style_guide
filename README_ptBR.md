@@ -19,12 +19,12 @@
   * _Expressões Regulares_
   * [Metaprogramação](#metaprogramming)
   * [Testes](#testes)
-  * [Guias de Estilo Alternativos](#alternative-style-guides)
+  * [Guias de Estilo Alternativos](#guias-estilo-alternativos)
   * [Ferramentas](#ferramentas)
-* __[Getting Involved](#getting-involved)__
-  * [Contributing](#contributing)
-  * [Spread the Word](#spread-the-word)
-* __[Copying](#copying)__
+* __[Participando](#participando)__
+  * [Contribuindo](#contribuindo)
+  * [Espalhe](#espalhe)
+* __[Cópias](#copias)__
   * [License](#license)
   * [Attribution](#attribution)
 
@@ -1227,25 +1227,25 @@ _No guidelines for regular expressions have been added yet._
 Refer to [Awesome Elixir][Code Analysis] for libraries and tools that can help
 with code analysis and style linting.
 
-## Getting Involved
+## Participando
 
-### Contributing
+### Contribuindo
 
 It's our hope that this will become a central hub for community discussion on
 best practices in Elixir.
 Feel free to open tickets or send pull requests with improvements.
 Thanks in advance for your help!
 
-Check the [contributing guidelines][Contributing]
+Check the [contributing guidelines][Contribuindo]
 and [code of conduct][Code Of Conduct] for more information.
 
-### Spread the Word
+### Espalhe
 
 A community style guide is meaningless without the community's support. Please
 tweet, [star][Stargazers], and let any Elixir programmer know
 about [this guide][Elixir Style Guide] so they can contribute.
 
-## Copying
+## Cópias
 
 ### License
 
@@ -1268,7 +1268,7 @@ project.
 [Code Analysis]: https://github.com/h4cc/awesome-elixir#code-analysis
 [Code Of Conduct]: https://github.com/christopheradams/elixir_style_guide/blob/master/CODE_OF_CONDUCT.md
 [Conflicting Aliases]: https://elixirforum.com/t/using-aliases-for-fubar-fubar-named-module/1723
-[Contributing]: https://github.com/elixir-lang/elixir/blob/master/CODE_OF_CONDUCT.md
+[Contribuindo]: https://github.com/elixir-lang/elixir/blob/master/CODE_OF_CONDUCT.md
 [Contributors]: https://github.com/christopheradams/elixir_style_guide/graphs/contributors
 [Elixir Style Guide]: https://github.com/christopheradams/elixir_style_guide
 [Elixir]: http://elixir-lang.org
