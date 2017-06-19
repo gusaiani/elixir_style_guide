@@ -25,36 +25,39 @@
   * [Contribuindo](#contribuindo)
   * [Espalhe](#espalhe)
 * __[Cópias](#copias)__
-  * [License](#license)
-  * [Attribution](#attribution)
+  * [Licença](#licenca)
+  * [Atribuição](#atribuicao)
 
 ## Introdução
 
-> Liquid architecture. It's like jazz — you improvise, you work together, you
-> play off each other, you make something, they make something.
+> Arquitetura líquida. É como o jazz - você improvisa, você trabalha junto,
+> você se inspira nos outros, você cria alguma coisa, eles criam alguma coisa.
 >
 > —Frank Gehry
 
-Style matters.
-[Elixir] has plenty of style but like all languages it can be stifled.
-Don't stifle the style.
+Estilo é importante.
+[Elixir] tem muito estilo, mas como todas as linguagens, ele pode ser estragado.
+Não estrague o estilo.
 
 ## O Guia
 
-This is community style guide for the [Elixir programming language][Elixir].
-Please feel free to make pull requests and suggestions, and be a part of
-Elixir's vibrant community.
+Este é o guia de estilo da comunidade para a [Linguagem de Programação Elixir][Elixir].
+Sinta-se à vontade para enviar pull requests e sugestões, e seja parte da
+vibrante comunidade do Elixir.
 
+Se você está procurando outros projetos para contribuir, por gentileza confira o [site do gerenciador de pacotes Hex][Hex].
 If you're looking for other projects to contribute to please see the
 [Hex package manager site][Hex].
 
-<a name="translations"></a>
-Translations of the guide are available in the following languages:
+<a name="traducoes"></a>
+Traduções deste guia estão disponíveis nas seguintes línguas:
 
-* [Chinese Traditional]
-* [Japanese]
-* [Korean]
-* [Spanish]
+* [Chinês Tradicional]
+* [Coreano]
+* [Espanhol]
+* [Inglês]
+* [Japonês]
+* [Português]
 
 ### Source Code Layout
 
@@ -1249,11 +1252,11 @@ about [this guide][Elixir Style Guide] so they can contribute.
 
 ### License
 
-![Creative Commons License](http://i.creativecommons.org/l/by/3.0/88x31.png)
+![Creative Commons Licença](http://i.creativecommons.org/l/by/3.0/88x31.png)
 This work is licensed under a
-[Creative Commons Attribution 3.0 Unported License][License]
+[Creative Commons Attribution 3.0 Unported License][Licença]
 
-### Attribution
+### Atribuição
 
 The structure of this guide, bits of example code, and many of the initial
 points made in this document were borrowed from the [Ruby community style guide].
@@ -1278,7 +1281,7 @@ project.
 [Hex]: https://hex.pm/packages
 [Japanese]: https://github.com/kenichirow/elixir_style_guide/blob/master/README-jaJP.md
 [Korean]: https://github.com/marocchino/elixir_style_guide/blob/new-korean/README-koKR.md
-[License]: http://creativecommons.org/licenses/by/3.0/deed.en_US
+[Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
 [Module Attributes]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
 [Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
