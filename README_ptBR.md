@@ -1,6 +1,6 @@
-# [The Elixir Style Guide][Elixir Style Guide]
+# [O Guia de Estilo Elixir][Guia de Estilo Elixir]
 
-## Table of Contents
+## Índice
 
 * __[Introdução](#introducao)__
 * __[O Guia de Estilo Elixir](#o-guia)__
