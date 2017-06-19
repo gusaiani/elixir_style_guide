@@ -8,7 +8,7 @@
   * [Sintaxe](#sintaxe)
   * [Nomenclatura](#nomenclatura)
   * [Comentários](#comentarios)
-    * [Anotaçóes em Comentários](#anotacoes-comentarios)
+    * [Anotações em Comentários](#anotacoes-comentarios)
   * [Módulos](#modulos)
   * [Documentação](#documentacao)
   * [Typespecs](#typespecs)
