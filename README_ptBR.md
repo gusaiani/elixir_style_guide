@@ -59,22 +59,22 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 * [Japonês]
 * [Português]
 
-### Source Code Layout
+### Layout do Código Fonte
 
-* <a name="spaces-indentation"></a>
-  Use two **spaces** per indentation level.
-  No hard tabs.
-  <sup>[[link](#spaces-indentation)]</sup>
+* <a name="indentacao-com-espacos"></a>
+  Use dois **espaços** por nível de recuo.
+  Não use hard tabs.
+  <sup>[[link](#indentacao-com-espacos)]</sup>
 
   ```elixir
-  # not preferred - four spaces
-  def some_function do
-      do_something
+  # ruim - quatro espaços
+  def alguma_funcao do
+      fazer_algo
   end
 
-  # preferred
-  def some_function do
-    do_something
+  # bom
+  def alguma_funcao do
+    fazer_algo
   end
   ```
 
