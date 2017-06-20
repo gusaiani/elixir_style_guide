@@ -106,7 +106,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   Enum.map(["um", <<"dois">>, "três"], fn num -> IO.puts num end)
   ```
 
-* <a name="sem-espacoes"></a>
+* <a name="sem-espacos"></a>
   Não use espaço depois de operadores que não são palavras; ou ao redor do
   operador range.
   <sup>[[link](#sem-espacos)]</sup>
@@ -124,7 +124,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   def alguma_func(algum_dado) do
-    dado_alterado = Module.function(dado)
+    dado_alterado = Module.function(algum_dado)
   end
 
   def alguma_func do
@@ -145,7 +145,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="defs-de-uma-linha"></a>
-  ...mas coloque junto `def`s de uma linha só que correspondam a mesma função.
+  ...mas coloque junto `def`s de uma linha só que correspondam à mesma função.
   <sup>[[link](#defs-de-uma-linha)]</sup>
 
   ```elixir
