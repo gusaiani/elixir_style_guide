@@ -78,81 +78,81 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="line-endings"></a>
-  Use Unix-style line endings (\*BSD/Solaris/Linux/OSX users are covered by
-  default, Windows users have to be extra careful).
-  <sup>[[link](#line-endings)]</sup>
+* <a name="quebra-de-linha"></a>
+  Use quebra de linha estilo Unix (\*Usuários de BSD/Solaris/Linux/OSX por padrão
+  estão cobertos, usuários Windows tem que tomar muito cuidado).
+  <sup>[[link](#quebra-de-linha)]</sup>
 
 * <a name="autocrlf"></a>
-  If you're using Git you might want to add the following configuration
-  setting to protect your project from Windows line endings creeping in:
+  Se você está usando Git talvez você queira adicionar a seguinte
+  configuração para evitar quebras de linha Windows adicionadas acidentalmente:
   <sup>[[link](#autocrlf)]</sup>
 
   ```sh
   git config --global core.autocrlf true
   ```
 
-* <a name="spaces"></a>
-  Use spaces around operators, after commas, colons and semicolons.
-  Do not put spaces around matched pairs like brackets, parentheses, etc.
-  Whitespace might be (mostly) irrelevant to the Elixir runtime, but its proper
-  use is the key to writing easily readable code.
-  <sup>[[link](#spaces)]</sup>
+* <a name="espacos"></a>
+  Use espaço ao redor de operadores, depois de vírgulas, dois pontos e ponto e vírgulas.
+  Não coloque espaço ao redor de pares correspondentes como parênteses, colchetes e chaves.
+  Espaço pode ser (na maioria das vezes) irrelevante no runtime do Elixir, mas
+  seu uso apropriado é essencial para se escrever código leǵivel.
+  <sup>[[link](#espacos)]</sup>
 
   ```elixir
-  sum = 1 + 2
+  soma = 1 + 2
   {a, b} = {2, 3}
-  [first | rest] = [1, 2, 3]
-  Enum.map(["one", <<"two">>, "three"], fn num -> IO.puts num end)
+  [primeiro | resto] = [1, 2, 3]
+  Enum.map(["um", <<"dois">>, "três"], fn num -> IO.puts num end)
   ```
 
-* <a name="no-spaces"></a>
-  Do not use spaces after non-word operators that only take one argument; or
-  around the range operator.
-  <sup>[[link](#no-spaces)]</sup>
+* <a name="sem-espacos"></a>
+  Não use espaço depois de operadores que não são palavras; ou ao redor do
+  operador range.
+  <sup>[[link](#sem-espacos)]</sup>
 
   ```elixir
   0 - 1 == -1
-  ^pinned = some_func()
+  ^pinned = alguma_func()
   5 in 1..10
   ```
 
-* <a name="def-spacing"></a>
-  Use blank lines between `def`s to break up a function into logical
-  paragraphs.
-  <sup>[[link](#def-spacing)]</sup>
+* <a name="espacamento-def"></a>
+  Use linhas em branco entre `def`s para quebrar uma função em seus parágrafos
+  lógicos.
+  <sup>[[link](#espacamento-def)]</sup>
 
   ```elixir
-  def some_function(some_data) do
-    altered_data = Module.function(data)
+  def alguma_func(algum_dado) do
+    dado_alterado = Module.function(algum_dado)
   end
 
-  def some_function do
-    result
+  def alguma_func do
+    resultado
   end
 
-  def some_other_function do
-    another_result
+  def alguma_outra_func do
+    outro_resultado
   end
 
-  def a_longer_function do
-    one
-    two
+  def uma_funcao_mais_longa do
+    um
+    dois
 
-    three
-    four
+    três
+    quatro
   end
   ```
 
-* <a name="single-line-defs"></a>
-  ...but run single-line `def`s that match for the same function together.
-  <sup>[[link](#single-line-defs)]</sup>
+* <a name="defs-de-uma-linha"></a>
+  ...mas coloque junto `def`s de uma linha só que correspondam à mesma função.
+  <sup>[[link](#defs-de-uma-linha)]</sup>
 
   ```elixir
-  def some_function(nil), do: {:err, "No Value"}
-  def some_function([]), do: :ok
-  def some_function([first | rest]) do
-    some_function(rest)
+  def alguma_funcao(nil), do: {:err, "No Value"}
+  def alguma_funcao([]), do: :ok
+  def alguma_funcao([primeiro | resto]) do
+    alguma_funcao(resto)
   end
   ```
 
@@ -1287,4 +1287,3 @@ project.
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
 [Spanish]: https://github.com/albertoalmagro/elixir_style_guide/blob/spanish/README_esES.md
 [Stargazers]: https://github.com/christopheradams/elixir_style_guide/stargazers
-
