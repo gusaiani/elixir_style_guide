@@ -583,68 +583,68 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 ### Nomenclatura
 
 * <a name="snake-case"></a>
-  Use `snake_case` for atoms, functions and variables.
+  Use `snake_case` para atoms, funções e variáveis.
   <sup>[[link](#snake-case)]</sup>
 
   ```elixir
-  # not preferred
-  :"some atom"
-  :SomeAtom
-  :someAtom
+  # não recomendado
+  :"algum atom"
+  :AlgumAtom
+  :AlgumAtom
 
-  someVar = 5
+  algumaVar = 5
 
-  def someFunction do
+  def algumaFuncao do
     ...
   end
 
-  def SomeFunction do
+  def AlgumaFuncao do
     ...
   end
 
-  # preferred
-  :some_atom
+  # recomendado
+  :algum_atom
 
-  some_var = 5
+  alguma_var = 5
 
-  def some_function do
+  def alguma_funcao do
     ...
   end
   ```
 
 * <a name="camel-case"></a>
-  Use `CamelCase` for modules (keep acronyms like HTTP, RFC, XML uppercase).
+  Use `CamelCase` para modulos (mantenha siglas como HTTP, RFC, XML em maiúsculo).
   <sup>[[link](#camel-case)]</sup>
 
   ```elixir
-  # not preferred
-  defmodule Somemodule do
+  # não recomendado
+  defmodule Algummodulo do
     ...
   end
 
-  defmodule Some_Module do
+  defmodule Algum_Modulo do
     ...
   end
 
-  defmodule SomeXml do
+  defmodule AlgumXml do
     ...
   end
 
-  # preferred
-  defmodule SomeModule do
+  # recomendado
+  defmodule AlgumModulo do
     ...
   end
 
-  defmodule SomeXML do
+  defmodule AlgumXML do
     ...
   end
   ```
 
-* <a name="predicate-macro-names-with-guards"></a>
-  The names of predicate macros (compile-time generated functions that return a
-  boolean value) _that can be used within guards_ should be prefixed with `is_`.
-  For a list of allowed expressions, see the [Guard][Guard Expressions] docs.
-  <sup>[[link](#predicate-macro-names-with-guards)]</sup>
+* <a name="nome-de-macro-de-predicado-com-guards"></a>
+  Os nomes das macros predicados (funções de geração de tempo de compilação que retornam um
+  valor booleano) _que pode ser usado dentro de guards_ deve ser prefixado com `is_`.
+  Para uma lista de expressões permitidas, veja nos documentos [Guard][Guard Expressions].
+  <sup>[[link](#nome-de-macro-de-predicado-com-guards)]</sup>
 
   ```elixir
   defmacro is_cool(var) do
@@ -652,26 +652,25 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="predicate-macro-names-no-guards"></a>
-  The names of predicate functions _that cannot be used within guards_ should
-  have a trailing question mark (`?`) rather than the `is_` (or similar) prefix.
-  <sup>[[link](#predicate-macro-names-no-guards)]</sup>
+* <a name="nome-de-macro-de-predicado-sem-guards"></a>
+  Os nomes de funções predicados _que não podem ser usadas com guards_ devem
+  ter um ponto de interrogação à direita (`?`) em vez do prefixo `is_` (ou similar).
+  <sup>[[link](#nome-de-macro-de-predicado-sem-guards)]</sup>
 
   ```elixir
   def cool?(var) do
-    # Complex check if var is cool not possible in a pure function.
+    # Verificação complexa se var for cool não é possível em uma função pura.
   end
   ```
 
-* <a name="private-functions-with-same-name-as-public"></a>
-  Private functions with the same name as public functions should start with
-  `do_`.
-  <sup>[[link](#private-functions-with-same-name-as-public)]</sup>
+* <a name="funcoes-privadas-com-mesmo-nome-de-publicas"></a>
+  Funções privadas com o mesmo nome de funções públicas devem começar com `do_`.
+  <sup>[[link](#funcoes-privadas-com-mesmo-nome-de-publicas)]</sup>
 
   ```elixir
   def sum(list), do: do_sum(list, 0)
 
-  # private functions
+  # funções privadas
   defp do_sum([], total), do: total
   defp do_sum([head | tail], total), do: do_sum(tail, head + total)
   ```
