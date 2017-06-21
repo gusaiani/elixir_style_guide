@@ -67,12 +67,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#indentacao-com-espacos)]</sup>
 
   ```elixir
-  # ruim - quatro espaços
+  # não preferido - quatro espaços
   def alguma_funcao do
       fazer_algo
   end
 
-  # bom
+  # preferido
   def alguma_funcao do
     fazer_algo
   end
@@ -156,31 +156,31 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="long-dos"></a>
-  If you use the `do:` syntax with functions and the line that makes up the
+* <a name="dos-longos"></a>
+  Se você usar a sintaxe `do:` com funções, e o corpo da função tiver uma linha longa, coloque o `do:` em uma nova linha com mais um nível de indentação do que a linha anterior.
   function body is long, put the `do:` on a new line indented one level more
   than the previous line.
-  <sup>[[link](#long-dos)]</sup>
+  <sup>[[link](#dos-longos)]</sup>
 
   ```elixir
-  def some_function(args),
-    do: Enum.map(args, fn(arg) -> arg <> " is on a very long line!" end)
+  def alguma_funcao(args),
+    do: Enum.map(args, fn(arg) -> arg <> " está em uma linha muito longa!" end)
   ```
 
-  When you use the convention above and you have more than one function clause
-  using the `do:` syntax, put the `do:` on a new line for each function clause:
+  Quando você usar a convenção acima e tiver mais que uma cláusula
+ usando a sintaxe `do:`, coloque o `do:` em uma nova linha para cada cláusula:
 
   ```elixir
   # not preferred
-  def some_function([]), do: :empty
-  def some_function(_),
-    do: :very_long_line_here
+  def alguma_funcao([]), do: :vazio
+  def alguma_funcao(_),
+    do: :linha_muito_longa_aqui
 
   # preferred
-  def some_function([]),
-    do: :empty
-  def some_function(_),
-    do: :very_long_line_here
+  def alguma_funcao([]),
+    do: :vazio
+  def alguma_funcao(_),
+    do: :linha_muito_longa_aqui
   ```
 
 * <a name="multiple-function-defs"></a>
@@ -188,20 +188,20 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#multiple-function-defs)]</sup>
 
   ```elixir
-  def some_function(nil) do
+  def alguma_funcao(nil) do
     {:err, "No Value"}
   end
 
-  def some_function([]) do
+  def alguma_funcao([]) do
     :ok
   end
 
-  def some_function([first | rest]) do
-    some_function(rest)
+  def alguma_funcao([first | rest]) do
+    alguma_funcao(rest)
   end
 
-  def some_function([first | rest], opts) do
-    some_function(rest, opts)
+  def alguma_funcao([first | rest], opts) do
+    alguma_funcao(rest, opts)
   end
   ```
 
@@ -309,20 +309,20 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # not preferred
-  def some_function arg1, arg2 do
+  def alguma_funcao arg1, arg2 do
     # body omitted
   end
 
-  def some_function() do
+  def alguma_funcao() do
     # body omitted
   end
 
   # preferred
-  def some_function(arg1, arg2) do
+  def alguma_funcao(arg1, arg2) do
     # body omitted
   end
 
-  def some_function do
+  def alguma_funcao do
     # body omitted
   end
   ```
@@ -548,10 +548,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # not preferred
-  some_function(foo, bar, [a: "baz", b: "qux"])
+  alguma_funcao(foo, bar, [a: "baz", b: "qux"])
 
   # preferred
-  some_function(foo, bar, a: "baz", b: "qux")
+  alguma_funcao(foo, bar, a: "baz", b: "qux")
   ```
 
 * <a name="with-clauses"></a>
@@ -607,7 +607,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   some_var = 5
 
-  def some_function do
+  def alguma_funcao do
     ...
   end
   ```
@@ -721,7 +721,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # TODO: Deprecate in v1.5.
-  def some_function(arg), do: {:ok, arg}
+  def alguma_funcao(arg), do: {:ok, arg}
   ```
 
 * <a name="exceptions-to-annotations"></a>
@@ -849,7 +849,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     @module_attribute :foo
     @other_attribute 100
 
-    @callback some_function(term) :: :ok | {:error, term}
+    @callback alguma_funcao(term) :: :ok | {:error, term}
 
     @macrocallback macro_name(term) :: Macro.t
 
@@ -994,7 +994,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     About the module
 
     Examples:
-    iex> SomeModule.some_function
+    iex> SomeModule.alguma_funcao
     :result
     """
   end
@@ -1006,7 +1006,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
 
     ## Examples
 
-        iex> SomeModule.some_function
+        iex> SomeModule.alguma_funcao
         :result
     """
   end
@@ -1080,8 +1080,8 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#spec-spacing)]</sup>
 
   ```elixir
-  @spec some_function(term) :: result
-  def some_function(some_data) do
+  @spec alguma_funcao(term) :: result
+  def alguma_funcao(some_data) do
     {:ok, some_data}
   end
   ```
