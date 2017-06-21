@@ -149,7 +149,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#defs-de-uma-linha)]</sup>
 
   ```elixir
-  def alguma_funcao(nil), do: {:err, "No Value"}
+  def alguma_funcao(nil), do: {:err, "Nenhum Valor"}
   def alguma_funcao([]), do: :ok
   def alguma_funcao([primeiro | resto]) do
     alguma_funcao(resto)
@@ -189,76 +189,76 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   def alguma_funcao(nil) do
-    {:err, "No Value"}
+    {:err, "Nenhum Valor"}
   end
 
   def alguma_funcao([]) do
     :ok
   end
 
-  def alguma_funcao([first | rest]) do
-    alguma_funcao(rest)
+  def alguma_funcao([primeiro | resto]) do
+    alguma_funcao(resto)
   end
 
-  def alguma_funcao([first | rest], opts) do
-    alguma_funcao(rest, opts)
+  def alguma_funcao([primeiro | resto], opts) do
+    alguma_funcao(resto, opts)
   end
   ```
 
-* <a name="pipe-operator"></a>
-  Use the pipe operator (`|>`) to chain functions together.
-  <sup>[[link](#pipe-operator)]</sup>
+* <a name="operador-pipe"></a>
+  Use o operador pipe (`|>`) para encadear funções.
+  <sup>[[link](#operador-pipe)]</sup>
 
   ```elixir
   # não preferido
-  String.strip(String.downcase(some_string))
+  String.strip(String.downcase(alguma_string))
 
   # preferido
-  some_string |> String.downcase |> String.strip
+  alguma_string |> String.downcase |> String.strip
 
-  # Multiline pipelines are not further indented
-  some_string
+  # Pipelines multilinha não recebem indentação extra
+  alguma_string
   |> String.downcase
   |> String.strip
 
-  # Multiline pipelines on the right side of a pattern match
-  # should be indented on a new line
-  sanitized_string =
-    some_string
+  # Pipelines multilinha do lado direito de um pattern match
+  # devem ser indentados em uma nova linha
+  string_sanitizada =
+    alguma_string
     |> String.downcase
     |> String.strip
   ```
 
-  While this is the preferred method, take into account that copy-pasting
-  multiline pipelines into IEx might result in a syntax error, as IEx will
-  evaluate the first line without realizing that the next line has a pipeline.
+  Mesmo este sendo o método preferido, lembre-se que copiar e colar
+  pipelines multilinha no IEx pode resultar em erro de sintaxe, já que o
+  IEx vai avaliar a primeira linha sem perceber que a próxima linha tem um pipeline.
 
-* <a name="avoid-single-pipelines"></a>
-  Avoid using the pipe operator just once.
-  <sup>[[link](#avoid-single-pipelines)]</sup>
+* <a name="evite-pipelines-solitarios"></a>
+  Evite usar o operador pipe uma vez só.
+  <sup>[[link](#evite-pipelines-solitarios)]</sup>
 
   ```elixir
   # não preferido
-  some_string |> String.downcase
+  alguma_string |> String.downcase
 
   # preferido
-  String.downcase(some_string)
+  String.downcase(alguma_string)
   ```
 
-* <a name="bare-variables"></a>
-  Use _bare_ variables in the first part of a function chain.
-  <sup>[[link](#bare-variables)]</sup>
+* <a name="variaveis-sozinhas"></a>
+  Use variáveis _sozinhas_ na primeira parte de uma cadeia de funções.
+  <sup>[[link](#variaveis-sozinhas)]</sup>
 
   ```elixir
-  # THE WORST!
-  # This actually parses as String.strip("nope" |> String.downcase).
-  String.strip "nope" |> String.downcase
+  # PIOR JEITO!
+  # Isto é interpretado como String.strip("não" |> String.downcase).
+  String.strip "não" |> String.downcase
 
   # não preferido
-  String.strip(some_string) |> String.downcase |> String.codepoints
+  String.strip(alguma_string) |> String.downcase |> String.codepoints
 
   # preferido
-  some_string |> String.strip |> String.downcase |> String.codepoints
+  alguma_string |> String.strip |> String.downcase |> String.codepoints
   ```
 
 * <a name="multiline-list-assign"></a>
@@ -268,23 +268,23 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # não preferido - no indentation
-  list = [:first_item, :second_item, :next_item,
+  list = [:primeiro_item, :second_item, :next_item,
   :last_item]
 
   # better, but não preferido - with indentation
-  list = [:first_item, :second_item, :next_item,
+  list = [:primeiro_item, :second_item, :next_item,
           :last_item]
 
   # preferido - list starts on its own line
   # good for shorter, more compact lists
   list =
-    [:first_item, :second_item, :next_item,
+    [:primeiro_item, :second_item, :next_item,
      :last_item]
 
   # also preferido - when each element is on its own line
   # good for long lists, lists with long elements, or lists with comments
   list = [
-    :first_item,
+    :primeiro_item,
     :second_item,
     :next_item,
     # comment
@@ -334,19 +334,19 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # não preferido
-  some_string =
+  alguma_string =
     "Hello"
     |> String.downcase
     |> String.strip
-  another_string <> some_string
+  outra_string <> alguma_string
 
   # preferido
-  some_string =
+  alguma_string =
     "Hello"
     |> String.downcase
     |> String.strip
 
-  another_string <> some_string
+  outra_string <> alguma_string
   ```
 
   ```elixir
@@ -689,8 +689,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#comment-leading-spaces)]</sup>
 
   ```elixir
-  String.first(some_string) #não preferido
-  String.first(some_string) # preferido
+  String.first(alguma_string) # não preferido
+  String.first(alguma_string) # preferido
   ```
 
 * <a name="comment-grammar"></a>
@@ -1173,10 +1173,10 @@ _No guidelines for collections have been added yet._
 
   ```elixir
   # não preferido
-  <<"my"::utf8, _rest>> = "my string"
+  <<"my"::utf8, _resto>> = "my string"
 
   # preferido
-  "my" <> _rest = "my string"
+  "my" <> _resto = "my string"
   ```
 
 ### Expressões Regulares
