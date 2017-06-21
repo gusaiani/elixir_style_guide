@@ -261,35 +261,35 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   alguma_string |> String.strip |> String.downcase |> String.codepoints
   ```
 
-* <a name="multiline-list-assign"></a>
-  When assigning a list that spans multiple lines, start the list on a newline,
-  and indent the elements to keep them aligned.
-  <sup>[[link](#multiline-list-assign)]</sup>
+* <a name="declaracao-list-multilinha"></a>
+  Ao declarar uma linha que abrange múltiplas linhas, comece a lista em uma nova linha,
+  e indente os elementos para mantê-los alinhados.
+  <sup>[[link](#declaracao-list-multilinha)]</sup>
 
   ```elixir
-  # não preferido - no indentation
-  list = [:primeiro_item, :second_item, :next_item,
-  :last_item]
+  # não preferido - sem indentação
+  lista = [:primeiro_item, :segundo_item, :proximo_item,
+  :ultimo_item]
 
   # better, but não preferido - with indentation
-  list = [:primeiro_item, :second_item, :next_item,
-          :last_item]
+  lista = [:primeiro_item, :segundo_item, :proximo_item,
+          :ultimo_item]
 
-  # preferido - list starts on its own line
-  # good for shorter, more compact lists
-  list =
-    [:primeiro_item, :second_item, :next_item,
-     :last_item]
+  # preferido - lista começa em uma linha própria
+  # bom para listas menores
+  lista =
+    [:primeiro_item, :segundo_item, :proximo_item,
+     :ultimo_item]
 
-  # also preferido - when each element is on its own line
-  # good for long lists, lists with long elements, or lists with comments
-  list = [
+  # também preferido - com cada elemento em uma linha
+  # bom para listas longas, listas com elementos longos ou listas com comentários
+  lista = [
     :primeiro_item,
-    :second_item,
-    :next_item,
-    # comment
-    :many_items,
-    :last_item
+    :segundo_item,
+    :proximo_item,
+    # comentário
+    :muitos_itens,
+    :ultimo_item
   ]
   ```
 
