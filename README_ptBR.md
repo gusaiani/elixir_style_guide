@@ -293,13 +293,13 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ]
   ```
 
-* <a name="trailing-whitespace"></a>
-  Avoid trailing whitespace.
-  <sup>[[link](#trailing-whitespace)]</sup>
+* <a name="espaco-branco-direita"></a>
+  Evite espaço em branco no fim das linhas
+  <sup>[[link](#espaco-branco-direita)]</sup>
 
-* <a name="newline-eof"></a>
-  End each file with a newline.
-  <sup>[[link](#newline-eof)]</sup>
+* <a name="eof-nova-linha"></a>
+  Termine todos os arquivos com uma nova linha.
+  <sup>[[link](#eof-nova-linha)]</sup>
 
 ### Sintaxe
 
