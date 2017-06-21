@@ -1273,7 +1273,7 @@ project.
 [Conflicting Aliases]: https://elixirforum.com/t/using-aliases-for-fubar-fubar-named-module/1723
 [Contribuindo]: https://github.com/elixir-lang/elixir/blob/master/CODE_OF_CONDUCT.md
 [Contributors]: https://github.com/christopheradams/elixir_style_guide/graphs/contributors
-[Elixir Style Guide]: https://github.com/christopheradams/elixir_style_guide
+[Guia de Estilo Elixir]: https://github.com/christopheradams/elixir_style_guide
 [Elixir]: http://elixir-lang.org
 [ExDoc]: https://github.com/elixir-lang/ex_doc
 [ExUnit]: https://hexdocs.pm/ex_unit/ExUnit.html
@@ -1283,6 +1283,7 @@ project.
 [Korean]: https://github.com/marocchino/elixir_style_guide/blob/new-korean/README-koKR.md
 [Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
 [Module Attributes]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
+[Português]: https://github.com/gusaiani/elixir_style_guide/blob/master/README_ptBR.md
 [Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
 [Spanish]: https://github.com/albertoalmagro/elixir_style_guide/blob/spanish/README_esES.md
