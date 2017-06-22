@@ -613,7 +613,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="camel-case"></a>
-  Use `CamelCase` para modulos (mantenha siglas como HTTP, RFC, XML em maiúsculo).
+  Use `CamelCase` para módulos (mantenha siglas como HTTP, RFC, XML em maiúsculo).
+
   <sup>[[link](#camel-case)]</sup>
 
   ```elixir
@@ -641,8 +642,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="nome-de-macro-de-predicado-com-guards"></a>
-  Os nomes das macros predicados (funções de geração de tempo de compilação que retornam um
-  valor booleano) _que pode ser usado dentro de guards_ deve ser prefixado com `is_`.
+  Os nomes das macros predicadas (funções de geração de tempo de compilação que retornam um
+  valor booleano) _que podem ser usadas dentro de guards_ devem ser prefixados com `is_`.
   Para uma lista de expressões permitidas, veja nos documentos [Guard][Guard Expressions].
   <sup>[[link](#nome-de-macro-de-predicado-com-guards)]</sup>
 
@@ -653,7 +654,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="nome-de-macro-de-predicado-sem-guards"></a>
-  Os nomes de funções predicados _que não podem ser usadas com guards_ devem
+  Os nomes de funções predicadas _que não podem ser usadas em guards_ devem
   ter um ponto de interrogação à direita (`?`) em vez do prefixo `is_` (ou similar).
   <sup>[[link](#nome-de-macro-de-predicado-sem-guards)]</sup>
 
