@@ -67,239 +67,239 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#indentacao-com-espacos)]</sup>
 
   ```elixir
-  # ruim - quatro espaços
+  # não preferido - quatro espaços
   def alguma_funcao do
       fazer_algo
   end
 
-  # bom
+  # preferido
   def alguma_funcao do
     fazer_algo
   end
   ```
 
-* <a name="line-endings"></a>
-  Use Unix-style line endings (\*BSD/Solaris/Linux/OSX users are covered by
-  default, Windows users have to be extra careful).
-  <sup>[[link](#line-endings)]</sup>
+* <a name="quebra-de-linha"></a>
+  Use quebra de linha estilo Unix (\*Usuários de BSD/Solaris/Linux/OSX por padrão
+  estão cobertos, usuários Windows tem que tomar muito cuidado).
+  <sup>[[link](#quebra-de-linha)]</sup>
 
 * <a name="autocrlf"></a>
-  If you're using Git you might want to add the following configuration
-  setting to protect your project from Windows line endings creeping in:
+  Se você está usando Git talvez você queira adicionar a seguinte
+  configuração para evitar quebras de linha Windows adicionadas acidentalmente:
   <sup>[[link](#autocrlf)]</sup>
 
   ```sh
   git config --global core.autocrlf true
   ```
 
-* <a name="spaces"></a>
-  Use spaces around operators, after commas, colons and semicolons.
-  Do not put spaces around matched pairs like brackets, parentheses, etc.
-  Whitespace might be (mostly) irrelevant to the Elixir runtime, but its proper
-  use is the key to writing easily readable code.
-  <sup>[[link](#spaces)]</sup>
+* <a name="espacos"></a>
+  Use espaço ao redor de operadores, depois de vírgulas, dois pontos e ponto e vírgulas.
+  Não coloque espaço ao redor de pares correspondentes como parênteses, colchetes e chaves.
+  Espaço pode ser (na maioria das vezes) irrelevante no runtime do Elixir, mas
+  seu uso apropriado é essencial para se escrever código leǵivel.
+  <sup>[[link](#espacos)]</sup>
 
   ```elixir
-  sum = 1 + 2
+  soma = 1 + 2
   {a, b} = {2, 3}
-  [first | rest] = [1, 2, 3]
-  Enum.map(["one", <<"two">>, "three"], fn num -> IO.puts num end)
+  [primeiro | resto] = [1, 2, 3]
+  Enum.map(["um", <<"dois">>, "três"], fn num -> IO.puts num end)
   ```
 
-* <a name="no-spaces"></a>
-  Do not use spaces after non-word operators that only take one argument; or
-  around the range operator.
-  <sup>[[link](#no-spaces)]</sup>
+* <a name="sem-espacos"></a>
+  Não use espaço depois de operadores que não são palavras; ou ao redor do
+  operador range.
+  <sup>[[link](#sem-espacos)]</sup>
 
   ```elixir
   0 - 1 == -1
-  ^pinned = some_func()
+  ^pinned = alguma_func()
   5 in 1..10
   ```
 
-* <a name="def-spacing"></a>
-  Use blank lines between `def`s to break up a function into logical
-  paragraphs.
-  <sup>[[link](#def-spacing)]</sup>
+* <a name="espacamento-def"></a>
+  Use linhas em branco entre `def`s para quebrar uma função em seus parágrafos
+  lógicos.
+  <sup>[[link](#espacamento-def)]</sup>
 
   ```elixir
-  def some_function(some_data) do
-    altered_data = Module.function(data)
+  def alguma_func(algum_dado) do
+    dado_alterado = Module.function(algum_dado)
   end
 
-  def some_function do
-    result
+  def alguma_func do
+    resultado
   end
 
-  def some_other_function do
-    another_result
+  def alguma_outra_func do
+    outro_resultado
   end
 
-  def a_longer_function do
-    one
-    two
+  def uma_funcao_mais_longa do
+    um
+    dois
 
-    three
-    four
+    três
+    quatro
   end
   ```
 
-* <a name="single-line-defs"></a>
-  ...but run single-line `def`s that match for the same function together.
-  <sup>[[link](#single-line-defs)]</sup>
+* <a name="defs-de-uma-linha"></a>
+  ...mas coloque junto `def`s de uma linha só que correspondam à mesma função.
+  <sup>[[link](#defs-de-uma-linha)]</sup>
 
   ```elixir
-  def some_function(nil), do: {:err, "No Value"}
-  def some_function([]), do: :ok
-  def some_function([first | rest]) do
-    some_function(rest)
+  def alguma_funcao(nil), do: {:err, "Nenhum Valor"}
+  def alguma_funcao([]), do: :ok
+  def alguma_funcao([primeiro | resto]) do
+    alguma_funcao(resto)
   end
   ```
 
-* <a name="long-dos"></a>
-  If you use the `do:` syntax with functions and the line that makes up the
+* <a name="dos-longos"></a>
+  Se você usar a sintaxe `do:` com funções, e o corpo da função tiver uma linha longa, coloque o `do:` em uma nova linha com mais um nível de indentação do que a linha anterior.
   function body is long, put the `do:` on a new line indented one level more
   than the previous line.
-  <sup>[[link](#long-dos)]</sup>
+  <sup>[[link](#dos-longos)]</sup>
 
   ```elixir
-  def some_function(args),
-    do: Enum.map(args, fn(arg) -> arg <> " is on a very long line!" end)
+  def alguma_funcao(args),
+    do: Enum.map(args, fn(arg) -> arg <> " está em uma linha muito longa!" end)
   ```
 
-  When you use the convention above and you have more than one function clause
-  using the `do:` syntax, put the `do:` on a new line for each function clause:
+  Quando você usar a convenção acima e tiver mais que uma cláusula
+ usando a sintaxe `do:`, coloque o `do:` em uma nova linha para cada cláusula:
 
   ```elixir
-  # not preferred
-  def some_function([]), do: :empty
-  def some_function(_),
-    do: :very_long_line_here
+  # não preferido
+  def alguma_funcao([]), do: :vazio
+  def alguma_funcao(_),
+    do: :linha_muito_longa_aqui
 
-  # preferred
-  def some_function([]),
-    do: :empty
-  def some_function(_),
-    do: :very_long_line_here
+  # preferido
+  def alguma_funcao([]),
+    do: :vazio
+  def alguma_funcao(_),
+    do: :linha_muito_longa_aqui
   ```
 
-* <a name="multiple-function-defs"></a>
-  If you have more than one multi-line `def`s do not use single-line `def`s.
-  <sup>[[link](#multiple-function-defs)]</sup>
+* <a name="multiplos-defs-funcao"></a>
+  Se você tiver mais que um `def` multilinha, não use `def`s de uma linha.
+  <sup>[[link](#multiplos-defs-funcao)]</sup>
 
   ```elixir
-  def some_function(nil) do
-    {:err, "No Value"}
+  def alguma_funcao(nil) do
+    {:err, "Nenhum Valor"}
   end
 
-  def some_function([]) do
+  def alguma_funcao([]) do
     :ok
   end
 
-  def some_function([first | rest]) do
-    some_function(rest)
+  def alguma_funcao([primeiro | resto]) do
+    alguma_funcao(resto)
   end
 
-  def some_function([first | rest], opts) do
-    some_function(rest, opts)
+  def alguma_funcao([primeiro | resto], opts) do
+    alguma_funcao(resto, opts)
   end
   ```
 
-* <a name="pipe-operator"></a>
-  Use the pipe operator (`|>`) to chain functions together.
-  <sup>[[link](#pipe-operator)]</sup>
+* <a name="operador-pipe"></a>
+  Use o operador pipe (`|>`) para encadear funções.
+  <sup>[[link](#operador-pipe)]</sup>
 
   ```elixir
-  # not preferred
-  String.strip(String.downcase(some_string))
+  # não preferido
+  String.strip(String.downcase(alguma_string))
 
-  # preferred
-  some_string |> String.downcase |> String.strip
+  # preferido
+  alguma_string |> String.downcase |> String.strip
 
-  # Multiline pipelines are not further indented
-  some_string
+  # Pipelines multilinha não recebem indentação extra
+  alguma_string
   |> String.downcase
   |> String.strip
 
-  # Multiline pipelines on the right side of a pattern match
-  # should be indented on a new line
-  sanitized_string =
-    some_string
+  # Pipelines multilinha do lado direito de um pattern match
+  # devem ser indentados em uma nova linha
+  string_sanitizada =
+    alguma_string
     |> String.downcase
     |> String.strip
   ```
 
-  While this is the preferred method, take into account that copy-pasting
-  multiline pipelines into IEx might result in a syntax error, as IEx will
-  evaluate the first line without realizing that the next line has a pipeline.
+  Mesmo este sendo o método preferido, lembre-se que copiar e colar
+  pipelines multilinha no IEx pode resultar em erro de sintaxe, já que o
+  IEx vai avaliar a primeira linha sem perceber que a próxima linha tem um pipeline.
 
-* <a name="avoid-single-pipelines"></a>
-  Avoid using the pipe operator just once.
-  <sup>[[link](#avoid-single-pipelines)]</sup>
+* <a name="evite-pipelines-solitarios"></a>
+  Evite usar o operador pipe uma vez só.
+  <sup>[[link](#evite-pipelines-solitarios)]</sup>
 
   ```elixir
-  # not preferred
-  some_string |> String.downcase
+  # não preferido
+  alguma_string |> String.downcase
 
-  # preferred
-  String.downcase(some_string)
+  # preferido
+  String.downcase(alguma_string)
   ```
 
-* <a name="bare-variables"></a>
-  Use _bare_ variables in the first part of a function chain.
-  <sup>[[link](#bare-variables)]</sup>
+* <a name="variaveis-sozinhas"></a>
+  Use variáveis _sozinhas_ na primeira parte de uma cadeia de funções.
+  <sup>[[link](#variaveis-sozinhas)]</sup>
 
   ```elixir
-  # THE WORST!
-  # This actually parses as String.strip("nope" |> String.downcase).
-  String.strip "nope" |> String.downcase
+  # PIOR JEITO!
+  # Isto é interpretado como String.strip("não" |> String.downcase).
+  String.strip "não" |> String.downcase
 
-  # not preferred
-  String.strip(some_string) |> String.downcase |> String.codepoints
+  # não preferido
+  String.strip(alguma_string) |> String.downcase |> String.codepoints
 
-  # preferred
-  some_string |> String.strip |> String.downcase |> String.codepoints
+  # preferido
+  alguma_string |> String.strip |> String.downcase |> String.codepoints
   ```
 
-* <a name="multiline-list-assign"></a>
-  When assigning a list that spans multiple lines, start the list on a newline,
-  and indent the elements to keep them aligned.
-  <sup>[[link](#multiline-list-assign)]</sup>
+* <a name="declaracao-list-multilinha"></a>
+  Ao declarar uma linha que abrange múltiplas linhas, comece a lista em uma nova linha,
+  e indente os elementos para mantê-los alinhados.
+  <sup>[[link](#declaracao-list-multilinha)]</sup>
 
   ```elixir
-  # not preferred - no indentation
-  list = [:first_item, :second_item, :next_item,
-  :last_item]
+  # não preferido - sem indentação
+  lista = [:primeiro_item, :segundo_item, :proximo_item,
+  :ultimo_item]
 
-  # better, but not preferred - with indentation
-  list = [:first_item, :second_item, :next_item,
-          :last_item]
+  # better, but não preferido - with indentation
+  lista = [:primeiro_item, :segundo_item, :proximo_item,
+          :ultimo_item]
 
-  # preferred - list starts on its own line
-  # good for shorter, more compact lists
-  list =
-    [:first_item, :second_item, :next_item,
-     :last_item]
+  # preferido - lista começa em uma linha própria
+  # bom para listas menores
+  lista =
+    [:primeiro_item, :segundo_item, :proximo_item,
+     :ultimo_item]
 
-  # also preferred - when each element is on its own line
-  # good for long lists, lists with long elements, or lists with comments
-  list = [
-    :first_item,
-    :second_item,
-    :next_item,
-    # comment
-    :many_items,
-    :last_item
+  # também preferido - com cada elemento em uma linha
+  # bom para listas longas, listas com elementos longos ou listas com comentários
+  lista = [
+    :primeiro_item,
+    :segundo_item,
+    :proximo_item,
+    # comentário
+    :muitos_itens,
+    :ultimo_item
   ]
   ```
 
-* <a name="trailing-whitespace"></a>
-  Avoid trailing whitespace.
-  <sup>[[link](#trailing-whitespace)]</sup>
+* <a name="espaco-branco-direita"></a>
+  Evite espaço em branco no fim das linhas
+  <sup>[[link](#espaco-branco-direita)]</sup>
 
-* <a name="newline-eof"></a>
-  End each file with a newline.
-  <sup>[[link](#newline-eof)]</sup>
+* <a name="eof-nova-linha"></a>
+  Termine todos os arquivos com uma nova linha.
+  <sup>[[link](#eof-nova-linha)]</sup>
 
 ### Sintaxe
 
@@ -308,21 +308,21 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#parentheses)]</sup>
 
   ```elixir
-  # not preferred
-  def some_function arg1, arg2 do
+  # não preferido
+  def alguma_funcao arg1, arg2 do
     # body omitted
   end
 
-  def some_function() do
+  def alguma_funcao() do
     # body omitted
   end
 
-  # preferred
-  def some_function(arg1, arg2) do
+  # preferido
+  def alguma_funcao(arg1, arg2) do
     # body omitted
   end
 
-  def some_function do
+  def alguma_funcao do
     # body omitted
   end
   ```
@@ -333,24 +333,24 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#add-blank-line-after-multiline-assignment)]</sup>
 
   ```elixir
-  # not preferred
-  some_string =
+  # não preferido
+  alguma_string =
     "Hello"
     |> String.downcase
     |> String.strip
-  another_string <> some_string
+  outra_string <> alguma_string
 
-  # preferred
-  some_string =
+  # preferido
+  alguma_string =
     "Hello"
     |> String.downcase
     |> String.strip
 
-  another_string <> some_string
+  outra_string <> alguma_string
   ```
 
   ```elixir
-  # also not preferred
+  # also não preferido
   something =
     if x == 2 do
       "Hi"
@@ -359,7 +359,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     end
   something |> String.downcase
 
-  # preferred
+  # preferido
   something =
     if x == 2 do
       "Hi"
@@ -375,13 +375,13 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#do-with-multi-line-if-unless)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   if some_condition, do:
     # a line of code
     # another line of code
     # note no end in this block
 
-  # preferred
+  # preferido
   if some_condition do
     # some
     # lines
@@ -394,7 +394,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#do-with-single-line-if-unless)]</sup>
 
   ```elixir
-  # preferred
+  # preferido
   if some_condition, do: # some_stuff
   ```
 
@@ -404,14 +404,14 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#unless-with-else)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   unless success? do
     IO.puts 'failure'
   else
     IO.puts 'success'
   end
 
-  # preferred
+  # preferido
   if success? do
     IO.puts 'success'
   else
@@ -425,7 +425,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#true-as-last-condition)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   cond do
     1 + 2 == 5 ->
       "Nope"
@@ -435,7 +435,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
       "OK"
   end
 
-  # preferred
+  # preferido
   cond do
     1 + 2 == 5 ->
       "Nope"
@@ -451,10 +451,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#function-names-with-parentheses)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   f (3 + 2) + 1
 
-  # preferred
+  # preferido
   f(3 + 2) + 1
   ```
 
@@ -463,16 +463,16 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#function-calls-and-parentheses)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   f 3
 
-  # preferred
+  # preferido
   f(3)
 
-  # not preferred and parses as rem(2, (3 |> g)), which is not what you want.
+  # não preferido and parses as rem(2, (3 |> g)), which is not what you want.
   2 |> rem 3 |> g
 
-  # preferred
+  # preferido
   2 |> rem(3) |> g
   ```
 
@@ -481,12 +481,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#macro-calls-and-parentheses)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   quote(do
     foo
   end)
 
-  # preferred
+  # preferido
   quote do
     foo
   end
@@ -498,12 +498,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#parentheses-and-function-expressions)]</sup>
 
   ```elixir
-  # preferred
+  # preferido
   Enum.reduce(1..10, 0, fn x, acc ->
     x + acc
   end)
 
-  # also preferred
+  # also preferido
   Enum.reduce 1..10, 0, fn x, acc ->
     x + acc
   end
@@ -519,12 +519,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```elixir
   defp do_stuff, do: ...
 
-  # not preferred
+  # não preferido
   def my_func do
     do_stuff # is this a variable or a function call?
   end
 
-  # preferred
+  # preferido
   def my_func do
     do_stuff() # this is clearly a function call
   end
@@ -535,10 +535,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#keyword-list-syntax)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   some_value = [{:a, "baz"}, {:b, "qux"}]
 
-  # preferred
+  # preferido
   some_value = [a: "baz", b: "qux"]
   ```
 
@@ -547,11 +547,11 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#keyword-list-brackets)]</sup>
 
   ```elixir
-  # not preferred
-  some_function(foo, bar, [a: "baz", b: "qux"])
+  # não preferido
+  alguma_funcao(foo, bar, [a: "baz", b: "qux"])
 
-  # preferred
-  some_function(foo, bar, a: "baz", b: "qux")
+  # preferido
+  alguma_funcao(foo, bar, a: "baz", b: "qux")
   ```
 
 * <a name="with-clauses"></a>
@@ -587,10 +587,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#snake-case)]</sup>
 
   ```elixir
-  # não recomendado
-  :"algum atom"
-  :AlgumAtom
-  :AlgumAtom
+  # não preferido
+  :"some atom"
+  :SomeAtom
+  :someAtom
 
   algumaVar = 5
 
@@ -602,7 +602,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     ...
   end
 
-  # recomendado
+  # preferido
   :algum_atom
 
   alguma_var = 5
@@ -617,7 +617,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#camel-case)]</sup>
 
   ```elixir
-  # não recomendado
+  # não preferido
   defmodule Algummodulo do
     ...
   end
@@ -630,7 +630,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     ...
   end
 
-  # recomendado
+  # preferido
   defmodule AlgumModulo do
     ...
   end
@@ -688,8 +688,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#comment-leading-spaces)]</sup>
 
   ```elixir
-  String.first(some_string) #not preferred
-  String.first(some_string) # preferred
+  String.first(alguma_string) # não preferido
+  String.first(alguma_string) # preferido
   ```
 
 * <a name="comment-grammar"></a>
@@ -698,10 +698,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#comment-grammar)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   # these lowercase comments are missing punctuation
 
-  # preferred
+  # preferido
   # Capitalization example
   # Use punctuation for complete sentences.
   ```
@@ -720,7 +720,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # TODO: Deprecate in v1.5.
-  def some_function(arg), do: {:ok, arg}
+  def alguma_funcao(arg), do: {:ok, arg}
   ```
 
 * <a name="exceptions-to-annotations"></a>
@@ -848,7 +848,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     @module_attribute :foo
     @other_attribute 100
 
-    @callback some_function(term) :: :ok | {:error, term}
+    @callback alguma_funcao(term) :: :ok | {:error, term}
 
     @macrocallback macro_name(term) :: Macro.t
 
@@ -892,12 +892,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#repetitive-module-names)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   defmodule Todo.Todo do
     ...
   end
 
-  # preferred
+  # preferido
   defmodule Todo.Item do
     ...
   end
@@ -914,7 +914,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#moduledocs)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
 
   defmodule SomeModule do
 
@@ -932,7 +932,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     ...
   end
 
-  # preferred
+  # preferido
 
   defmodule SomeModule do
     @moduledoc """
@@ -958,7 +958,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#moduledoc-spacing)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
 
   defmodule SomeModule do
     @moduledoc """
@@ -967,7 +967,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     use AnotherModule
   end
 
-  # preferred
+  # preferido
   defmodule SomeModule do
     @moduledoc """
     About the module
@@ -982,7 +982,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#heredocs)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
 
   defmodule SomeModule do
     @moduledoc "About the module"
@@ -993,19 +993,19 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     About the module
 
     Examples:
-    iex> SomeModule.some_function
+    iex> SomeModule.alguma_funcao
     :result
     """
   end
 
-  # preferred
+  # preferido
   defmodule SomeModule do
     @moduledoc """
     About the module
 
     ## Examples
 
-        iex> SomeModule.some_function
+        iex> SomeModule.alguma_funcao
         :result
     """
   end
@@ -1044,15 +1044,15 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#union-types)]</sup>
 
   ```elixir
-  # not preferred - no indentation
+  # não preferido - no indentation
   @type long_union_type :: some_type | another_type | some_other_type |
   a_final_type
 
-  # preferred
+  # preferido
   @type long_union_type :: some_type | another_type | some_other_type |
                            a_final_type
 
-  # also preferred - one type per line
+  # also preferido - one type per line
   @type long_union_type :: some_type |
                            another_type |
                            some_other_type |
@@ -1079,8 +1079,8 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#spec-spacing)]</sup>
 
   ```elixir
-  @spec some_function(term) :: result
-  def some_function(some_data) do
+  @spec alguma_funcao(term) :: result
+  def alguma_funcao(some_data) do
     {:ok, some_data}
   end
   ```
@@ -1093,10 +1093,10 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#nil-struct-field-defaults)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   defstruct name: nil, params: nil, active: true
 
-  # preferred
+  # preferido
   defstruct [:name, :params, active: true]
   ```
 
@@ -1105,10 +1105,10 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#struct-def-brackets)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   defstruct [params: [], active: true]
 
-  # preferred
+  # preferido
   defstruct params: [], active: true
 
   # required - brackets are not optional, with at least one atom in the list
@@ -1132,7 +1132,7 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#exception-names)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   defmodule BadHTTPCode do
     defexception [:message]
   end
@@ -1141,7 +1141,7 @@ directives (see [Modules](#modulos)).
     defexception [:message]
   end
 
-  # preferred
+  # preferido
   defmodule BadHTTPCodeError do
     defexception [:message]
   end
@@ -1153,10 +1153,10 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#lowercase-error-messages)]</sup>
 
   ```elixir
-  # not preferred
+  # não preferido
   raise ArgumentError, "This is not valid."
 
-  # preferred
+  # preferido
   raise ArgumentError, "this is not valid"
   ```
 
@@ -1171,11 +1171,11 @@ _No guidelines for collections have been added yet._
   <sup>[[link](#strings-matching-with-concatenator)]</sup>
 
   ```elixir
-  # not preferred
-  <<"my"::utf8, _rest>> = "my string"
+  # não preferido
+  <<"my"::utf8, _resto>> = "my string"
 
-  # preferred
-  "my" <> _rest = "my string"
+  # preferido
+  "my" <> _resto = "my string"
   ```
 
 ### Expressões Regulares
@@ -1198,11 +1198,11 @@ _No guidelines for regular expressions have been added yet._
   <sup>[[link](#testing-assert-order)]</sup>
 
   ```elixir
-  # preferred - expected result on the right
+  # preferido - expected result on the right
   assert actual_function(1) == true
   assert actual_function(2) == false
 
-  # not preferred - inconsistent order
+  # não preferido - inconsistent order
   assert actual_function(1) == true
   assert false == actual_function(2)
 
@@ -1272,7 +1272,7 @@ project.
 [Conflicting Aliases]: https://elixirforum.com/t/using-aliases-for-fubar-fubar-named-module/1723
 [Contribuindo]: https://github.com/elixir-lang/elixir/blob/master/CODE_OF_CONDUCT.md
 [Contributors]: https://github.com/christopheradams/elixir_style_guide/graphs/contributors
-[Elixir Style Guide]: https://github.com/christopheradams/elixir_style_guide
+[Guia de Estilo Elixir]: https://github.com/christopheradams/elixir_style_guide
 [Elixir]: http://elixir-lang.org
 [ExDoc]: https://github.com/elixir-lang/ex_doc
 [ExUnit]: https://hexdocs.pm/ex_unit/ExUnit.html
@@ -1282,8 +1282,8 @@ project.
 [Korean]: https://github.com/marocchino/elixir_style_guide/blob/new-korean/README-koKR.md
 [Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
 [Module Attributes]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
+[Português]: https://github.com/gusaiani/elixir_style_guide/blob/master/README_ptBR.md
 [Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
 [Spanish]: https://github.com/albertoalmagro/elixir_style_guide/blob/spanish/README_esES.md
 [Stargazers]: https://github.com/christopheradams/elixir_style_guide/stargazers
-
