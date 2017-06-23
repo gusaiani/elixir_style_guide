@@ -67,12 +67,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#indentacao-com-espacos)]</sup>
 
   ```elixir
-  # não preferido - quatro espaços
+  # não recomendado - quatro espaços
   def alguma_funcao do
       fazer_algo
   end
 
-  # preferido
+  # recomendado
   def alguma_funcao do
     fazer_algo
   end
@@ -171,12 +171,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
  usando a sintaxe `do:`, coloque o `do:` em uma nova linha para cada cláusula:
 
   ```elixir
-  # não preferido
+  # não recomendado
   def alguma_funcao([]), do: :vazio
   def alguma_funcao(_),
     do: :linha_muito_longa_aqui
 
-  # preferido
+  # recomendado
   def alguma_funcao([]),
     do: :vazio
   def alguma_funcao(_),
@@ -210,10 +210,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#operador-pipe)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   String.strip(String.downcase(alguma_string))
 
-  # preferido
+  # recomendado
   alguma_string |> String.downcase |> String.strip
 
   # Pipelines multilinha não recebem indentação extra
@@ -229,7 +229,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     |> String.strip
   ```
 
-  Mesmo este sendo o método preferido, lembre-se que copiar e colar
+  Mesmo este sendo o método recomendado, lembre-se que copiar e colar
   pipelines multilinha no IEx pode resultar em erro de sintaxe, já que o
   IEx vai avaliar a primeira linha sem perceber que a próxima linha tem um pipeline.
 
@@ -238,10 +238,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#evite-pipelines-solitarios)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   alguma_string |> String.downcase
 
-  # preferido
+  # recomendado
   String.downcase(alguma_string)
   ```
 
@@ -254,10 +254,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   # Isto é interpretado como String.strip("não" |> String.downcase).
   String.strip "não" |> String.downcase
 
-  # não preferido
+  # não recomendado
   String.strip(alguma_string) |> String.downcase |> String.codepoints
 
-  # preferido
+  # recomendado
   alguma_string |> String.strip |> String.downcase |> String.codepoints
   ```
 
@@ -267,21 +267,21 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#declaracao-list-multilinha)]</sup>
 
   ```elixir
-  # não preferido - sem indentação
+  # não recomendado - sem indentação
   lista = [:primeiro_item, :segundo_item, :proximo_item,
   :ultimo_item]
 
-  # better, but não preferido - with indentation
+  # better, but não recomendado - with indentation
   lista = [:primeiro_item, :segundo_item, :proximo_item,
           :ultimo_item]
 
-  # preferido - lista começa em uma linha própria
+  # recomendado - lista começa em uma linha própria
   # bom para listas menores
   lista =
     [:primeiro_item, :segundo_item, :proximo_item,
      :ultimo_item]
 
-  # também preferido - com cada elemento em uma linha
+  # também recomendado - com cada elemento em uma linha
   # bom para listas longas, listas com elementos longos ou listas com comentários
   lista = [
     :primeiro_item,
@@ -308,7 +308,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#parentheses)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   def alguma_funcao arg1, arg2 do
     # body omitted
   end
@@ -317,7 +317,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     # body omitted
   end
 
-  # preferido
+  # recomendado
   def alguma_funcao(arg1, arg2) do
     # body omitted
   end
@@ -333,14 +333,14 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#add-blank-line-after-multiline-assignment)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   alguma_string =
     "Hello"
     |> String.downcase
     |> String.strip
   outra_string <> alguma_string
 
-  # preferido
+  # recomendado
   alguma_string =
     "Hello"
     |> String.downcase
@@ -350,7 +350,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
   ```elixir
-  # also não preferido
+  # also não recomendado
   something =
     if x == 2 do
       "Hi"
@@ -359,7 +359,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     end
   something |> String.downcase
 
-  # preferido
+  # recomendado
   something =
     if x == 2 do
       "Hi"
@@ -375,13 +375,13 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#do-with-multi-line-if-unless)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   if some_condition, do:
     # a line of code
     # another line of code
     # note no end in this block
 
-  # preferido
+  # recomendado
   if some_condition do
     # some
     # lines
@@ -394,7 +394,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#do-with-single-line-if-unless)]</sup>
 
   ```elixir
-  # preferido
+  # recomendado
   if some_condition, do: # some_stuff
   ```
 
@@ -404,14 +404,14 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#unless-with-else)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   unless success? do
     IO.puts 'failure'
   else
     IO.puts 'success'
   end
 
-  # preferido
+  # recomendado
   if success? do
     IO.puts 'success'
   else
@@ -425,7 +425,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#true-as-last-condition)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   cond do
     1 + 2 == 5 ->
       "Nope"
@@ -435,7 +435,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
       "OK"
   end
 
-  # preferido
+  # recomendado
   cond do
     1 + 2 == 5 ->
       "Nope"
@@ -451,10 +451,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#function-names-with-parentheses)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   f (3 + 2) + 1
 
-  # preferido
+  # recomendado
   f(3 + 2) + 1
   ```
 
@@ -463,16 +463,16 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#function-calls-and-parentheses)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   f 3
 
-  # preferido
+  # recomendado
   f(3)
 
-  # não preferido and parses as rem(2, (3 |> g)), which is not what you want.
+  # não recomendado and parses as rem(2, (3 |> g)), which is not what you want.
   2 |> rem 3 |> g
 
-  # preferido
+  # recomendado
   2 |> rem(3) |> g
   ```
 
@@ -481,12 +481,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#macro-calls-and-parentheses)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   quote(do
     foo
   end)
 
-  # preferido
+  # recomendado
   quote do
     foo
   end
@@ -498,12 +498,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#parentheses-and-function-expressions)]</sup>
 
   ```elixir
-  # preferido
+  # recomendado
   Enum.reduce(1..10, 0, fn x, acc ->
     x + acc
   end)
 
-  # also preferido
+  # also recomendado
   Enum.reduce 1..10, 0, fn x, acc ->
     x + acc
   end
@@ -519,12 +519,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```elixir
   defp do_stuff, do: ...
 
-  # não preferido
+  # não recomendado
   def my_func do
     do_stuff # is this a variable or a function call?
   end
 
-  # preferido
+  # recomendado
   def my_func do
     do_stuff() # this is clearly a function call
   end
@@ -535,10 +535,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#keyword-list-syntax)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   some_value = [{:a, "baz"}, {:b, "qux"}]
 
-  # preferido
+  # recomendado
   some_value = [a: "baz", b: "qux"]
   ```
 
@@ -547,10 +547,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#keyword-list-brackets)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   alguma_funcao(foo, bar, [a: "baz", b: "qux"])
 
-  # preferido
+  # recomendado
   alguma_funcao(foo, bar, a: "baz", b: "qux")
   ```
 
@@ -587,7 +587,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#snake-case)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   :"some atom"
   :SomeAtom
   :someAtom
@@ -602,7 +602,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     ...
   end
 
-  # preferido
+  # recomendado
   :algum_atom
 
   alguma_var = 5
@@ -618,7 +618,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#camel-case)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   defmodule Algummodulo do
     ...
   end
@@ -631,7 +631,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     ...
   end
 
-  # preferido
+  # recomendado
   defmodule AlgumModulo do
     ...
   end
@@ -689,8 +689,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#comment-leading-spaces)]</sup>
 
   ```elixir
-  String.first(alguma_string) # não preferido
-  String.first(alguma_string) # preferido
+  String.first(alguma_string) # não recomendado
+  String.first(alguma_string) # recomendado
   ```
 
 * <a name="comment-grammar"></a>
@@ -699,10 +699,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#comment-grammar)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   # these lowercase comments are missing punctuation
 
-  # preferido
+  # recomendado
   # Capitalization example
   # Use punctuation for complete sentences.
   ```
@@ -893,12 +893,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#repetitive-module-names)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   defmodule Todo.Todo do
     ...
   end
 
-  # preferido
+  # recomendado
   defmodule Todo.Item do
     ...
   end
@@ -915,7 +915,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#moduledocs)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
 
   defmodule SomeModule do
 
@@ -933,7 +933,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     ...
   end
 
-  # preferido
+  # recomendado
 
   defmodule SomeModule do
     @moduledoc """
@@ -959,7 +959,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#moduledoc-spacing)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
 
   defmodule SomeModule do
     @moduledoc """
@@ -968,7 +968,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     use AnotherModule
   end
 
-  # preferido
+  # recomendado
   defmodule SomeModule do
     @moduledoc """
     About the module
@@ -983,7 +983,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#heredocs)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
 
   defmodule SomeModule do
     @moduledoc "About the module"
@@ -999,7 +999,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
     """
   end
 
-  # preferido
+  # recomendado
   defmodule SomeModule do
     @moduledoc """
     About the module
@@ -1045,15 +1045,15 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#union-types)]</sup>
 
   ```elixir
-  # não preferido - no indentation
+  # não recomendado - no indentation
   @type long_union_type :: some_type | another_type | some_other_type |
   a_final_type
 
-  # preferido
+  # recomendado
   @type long_union_type :: some_type | another_type | some_other_type |
                            a_final_type
 
-  # also preferido - one type per line
+  # also recomendado - one type per line
   @type long_union_type :: some_type |
                            another_type |
                            some_other_type |
@@ -1094,10 +1094,10 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#nil-struct-field-defaults)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   defstruct name: nil, params: nil, active: true
 
-  # preferido
+  # recomendado
   defstruct [:name, :params, active: true]
   ```
 
@@ -1106,10 +1106,10 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#struct-def-brackets)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   defstruct [params: [], active: true]
 
-  # preferido
+  # recomendado
   defstruct params: [], active: true
 
   # required - brackets are not optional, with at least one atom in the list
@@ -1133,7 +1133,7 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#exception-names)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   defmodule BadHTTPCode do
     defexception [:message]
   end
@@ -1142,7 +1142,7 @@ directives (see [Modules](#modulos)).
     defexception [:message]
   end
 
-  # preferido
+  # recomendado
   defmodule BadHTTPCodeError do
     defexception [:message]
   end
@@ -1154,10 +1154,10 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#lowercase-error-messages)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   raise ArgumentError, "This is not valid."
 
-  # preferido
+  # recomendado
   raise ArgumentError, "this is not valid"
   ```
 
@@ -1172,10 +1172,10 @@ _No guidelines for collections have been added yet._
   <sup>[[link](#strings-matching-with-concatenator)]</sup>
 
   ```elixir
-  # não preferido
+  # não recomendado
   <<"my"::utf8, _resto>> = "my string"
 
-  # preferido
+  # recomendado
   "my" <> _resto = "my string"
   ```
 
@@ -1199,11 +1199,11 @@ _No guidelines for regular expressions have been added yet._
   <sup>[[link](#testing-assert-order)]</sup>
 
   ```elixir
-  # preferido - expected result on the right
+  # recomendado - expected result on the right
   assert actual_function(1) == true
   assert actual_function(2) == false
 
-  # não preferido - inconsistent order
+  # não recomendado - inconsistent order
   assert actual_function(1) == true
   assert false == actual_function(2)
 
