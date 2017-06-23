@@ -1267,24 +1267,25 @@ Here's the [list of people who have kindly contributed][Contributors] to this
 project.
 
 <!-- Links -->
-[Chinese Traditional]: https://github.com/elixirtw/elixir_style_guide/blob/master/README_zhTW.md
+[Chinês Tradicional]: https://github.com/elixirtw/elixir_style_guide/blob/master/README_zhTW.md
 [Code Analysis]: https://github.com/h4cc/awesome-elixir#code-analysis
 [Code Of Conduct]: https://github.com/christopheradams/elixir_style_guide/blob/master/CODE_OF_CONDUCT.md
 [Conflicting Aliases]: https://elixirforum.com/t/using-aliases-for-fubar-fubar-named-module/1723
 [Contribuindo]: https://github.com/elixir-lang/elixir/blob/master/CODE_OF_CONDUCT.md
 [Contributors]: https://github.com/christopheradams/elixir_style_guide/graphs/contributors
-[Guia de Estilo Elixir]: https://github.com/christopheradams/elixir_style_guide
+[Coreano]: https://github.com/marocchino/elixir_style_guide/blob/new-korean/README-koKR.md
 [Elixir]: http://elixir-lang.org
+[Espanhol]: https://github.com/albertoalmagro/elixir_style_guide/blob/spanish/README_esES.md
 [ExDoc]: https://github.com/elixir-lang/ex_doc
 [ExUnit]: https://hexdocs.pm/ex_unit/ExUnit.html
 [Guard Expressions]: http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses
+[Guia de Estilo Elixir]: https://github.com/christopheradams/elixir_style_guide
 [Hex]: https://hex.pm/packages
-[Japanese]: https://github.com/kenichirow/elixir_style_guide/blob/master/README-jaJP.md
-[Korean]: https://github.com/marocchino/elixir_style_guide/blob/new-korean/README-koKR.md
+[Inglês]: https://github.com/christopheradams/elixir_style_guide/README.md
+[Japonês]: https://github.com/kenichirow/elixir_style_guide/blob/master/README-jaJP.md
 [Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
 [Module Attributes]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
 [Português]: https://github.com/gusaiani/elixir_style_guide/blob/master/README_ptBR.md
 [Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
-[Spanish]: https://github.com/albertoalmagro/elixir_style_guide/blob/spanish/README_esES.md
 [Stargazers]: https://github.com/christopheradams/elixir_style_guide/stargazers
