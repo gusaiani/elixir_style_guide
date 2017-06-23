@@ -303,34 +303,34 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
 ### Sintaxe
 
-* <a name="parentheses"></a>
-  Use parentheses when a `def` has arguments, and omit them when it doesn't.
-  <sup>[[link](#parentheses)]</sup>
+* <a name="parenteses"></a>
+  Use parênteses quando um `def` tiver argumentos, e omita os parênteses quando ele não tiver argumentos.
+  <sup>[[link](#parenteses)]</sup>
 
   ```elixir
   # não recomendado
   def alguma_funcao arg1, arg2 do
-    # body omitted
+    # corpo omitido
   end
 
   def alguma_funcao() do
-    # body omitted
+    # corpo omitido
   end
 
   # recomendado
   def alguma_funcao(arg1, arg2) do
-    # body omitted
+    # corpo omitido
   end
 
   def alguma_funcao do
-    # body omitted
+    # corpo omitido
   end
   ```
 
-* <a name="add-blank-line-after-multiline-assignment"></a>
-  Add a blank line after a multiline assignment as a
-  visual cue that the assignment is 'over'.
-  <sup>[[link](#add-blank-line-after-multiline-assignment)]</sup>
+* <a name="adicione-linha-em-branco-apos-declaracao-multilinha"></a>
+  Adicione uma linha em branco após uma declaração multilinha
+  sinalizando que a declaração terminou.
+  <sup>[[link](#adicione-linha-em-branco-apos-declaracao-multilinha)]</sup>
 
   ```elixir
   # não recomendado
@@ -350,42 +350,42 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
   ```elixir
-  # also não recomendado
-  something =
+  # também não recomendado
+  alguma_coisa =
     if x == 2 do
-      "Hi"
+      "Oi"
     else
-      "Bye"
+      "Tchau"
     end
-  something |> String.downcase
+  alguma_coisa |> String.downcase
 
   # recomendado
-  something =
+  alguma_coisa =
     if x == 2 do
-      "Hi"
+      "Oi"
     else
-      "Bye"
+      "Tchau"
     end
 
-  something |> String.downcase
+  alguma_coisa |> String.downcase
   ```
 
-* <a name="do-with-multi-line-if-unless"></a>
-  Never use `do:` for multi-line `if/unless`.
-  <sup>[[link](#do-with-multi-line-if-unless)]</sup>
+* <a name="do-com-if-unless-multilinha"></a>
+  Nunca use `do:` para `if` ou `unless` multilinha.
+  <sup>[[link](#do-com-if-unless-multilinha)]</sup>
 
   ```elixir
   # não recomendado
-  if some_condition, do:
-    # a line of code
-    # another line of code
-    # note no end in this block
+  if alguma_condicao, do:
+    # uma linha de código
+    # outra linha de código
+    # note que este bloco não tem end
 
   # recomendado
-  if some_condition do
-    # some
-    # lines
-    # of code
+  if alguma_condicao do
+    # algumas
+    # linhas
+    # de código
   end
   ```
 
@@ -395,7 +395,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # recomendado
-  if some_condition, do: # some_stuff
+  if alguma_condicao, do: # some_stuff
   ```
 
 * <a name="unless-with-else"></a>
