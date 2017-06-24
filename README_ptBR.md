@@ -389,48 +389,48 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="do-with-single-line-if-unless"></a>
-  Use `do:` for single line `if/unless` statements.
-  <sup>[[link](#do-with-single-line-if-unless)]</sup>
+* <a name="do-de-uma-linha-só-if-unless"></a>
+  Use `do:` para `if/unless` de uma linha só.
+  <sup>[[link](#do-de-uma-linha-só-if-unless)]</sup>
 
   ```elixir
   # recomendado
-  if alguma_condicao, do: # some_stuff
+  if alguma_condicao, do: # alguma_coisa
   ```
 
-* <a name="unless-with-else"></a>
-  Never use `unless` with `else`.
-  Rewrite these with the positive case first.
-  <sup>[[link](#unless-with-else)]</sup>
+* <a name="unless-com-else"></a>
+  Nunca use `unless` com `else`.
+  Reescreva estes com apenas casos positivos.
+  <sup>[[link](#unless-com-else)]</sup>
 
   ```elixir
   # não recomendado
-  unless success? do
-    IO.puts 'failure'
+  unless successo? do
+    IO.puts 'falha'
   else
-    IO.puts 'success'
+    IO.puts 'successo'
   end
 
   # recomendado
-  if success? do
-    IO.puts 'success'
+  if successo? do
+    IO.puts 'successo'
   else
-    IO.puts 'failure'
+    IO.puts 'falha'
   end
   ```
 
-* <a name="true-as-last-condition"></a>
-  Use `true` as the last condition of the `cond` special form when you need a
-  clause that always matches.
-  <sup>[[link](#true-as-last-condition)]</sup>
+* <a name="true-como-ultima-condicao"></a>
+  Use `true` como a ultima condição do `cond` quando você precisa de uma
+  cláusula que sempre de match.
+  <sup>[[link](#true-como-ultima-condicao)]</sup>
 
   ```elixir
   # não recomendado
   cond do
     1 + 2 == 5 ->
-      "Nope"
+      "Não"
     1 + 3 == 5 ->
-      "Uh, uh"
+      "Oh, oh"
     :else ->
       "OK"
   end
@@ -438,17 +438,17 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   # recomendado
   cond do
     1 + 2 == 5 ->
-      "Nope"
+      "Não"
     1 + 3 == 5 ->
-      "Uh, uh"
+      "Oh, oh"
     true ->
       "OK"
   end
   ```
 
-* <a name="function-names-with-parentheses"></a>
-  Never put a space between a function name and the opening parenthesis.
-  <sup>[[link](#function-names-with-parentheses)]</sup>
+* <a name="nomes-de-funcao-com-parenteses"></a>
+  Nunca coloque um espaço entre o nome da função e a abertura dos parênteses.
+  <sup>[[link](#nomes-de-funcao-com-parenteses)]</sup>
 
   ```elixir
   # não recomendado
@@ -458,9 +458,9 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   f(3 + 2) + 1
   ```
 
-* <a name="function-calls-and-parentheses"></a>
-  Use parentheses in function calls, especially inside a pipeline.
-  <sup>[[link](#function-calls-and-parentheses)]</sup>
+* <a name="chamada-de-funcao-com-parenteses"></a>
+  Use parenteses em chamadas de função, especialmente dentre de uma pipeline.
+  <sup>[[link](#chamada-de-funcao-com-parentese)]</sup>
 
   ```elixir
   # não recomendado
@@ -469,16 +469,16 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   # recomendado
   f(3)
 
-  # não recomendado and parses as rem(2, (3 |> g)), which is not what you want.
+  # não recomendado e é convertido como rem(2, (3 |> g)), que não é o que você quer.
   2 |> rem 3 |> g
 
   # recomendado
   2 |> rem(3) |> g
   ```
 
-* <a name="macro-calls-and-parentheses"></a>
-  Omit parentheses in macro calls when a do block is passed.
-  <sup>[[link](#macro-calls-and-parentheses)]</sup>
+* <a name="chamadas-de-macro-e-parenteses"></a>
+  Omita parenteses em chamadas de macro onde um bloco `do` é passado.
+  <sup>[[link](#chamadas-de-macro-e-parenteses)]</sup>
 
   ```elixir
   # não recomendado
