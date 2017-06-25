@@ -492,10 +492,11 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="parentheses-and-function-expressions"></a>
-  Optionally omit parentheses in function calls (outside a pipeline) when the
-  last argument is a function expression.
-  <sup>[[link](#parentheses-and-function-expressions)]</sup>
+* <a name="parenteses-e-expressoes-de-funcoes"></a>
+  Parênteses são opcionais em chamadas de função (fora de pipelines) quando o
+  último argumento é uma expressão de função.
+
+  <sup>[[link](#parenteses-e-expressoes-de-funcoes)]</sup>
 
   ```elixir
   # recomendado
