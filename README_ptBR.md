@@ -504,30 +504,30 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     x + acc
   end)
 
-  # also recomendado
+  # também recomendado
   Enum.reduce 1..10, 0, fn x, acc ->
     x + acc
   end
   ```
 
-* <a name="parentheses-and-functions-with-zero-arity"></a>
-  Use parentheses for calls to functions with zero arity, so they can be
-  distinguished from variables.
-  Starting in Elixir 1.4, the compiler will warn you about
-  locations where this ambiguity exists.
-  <sup>[[link](#parentheses-and-functions-with-zero-arity)]</sup>
+* <a name="parenteses-e-funcoes-aridade-zero"></a>
+  Use parênteses quando chamar funções de aridade zero, para que elas
+  fiquem distintas de variáveis.
+  A partir do Elixir 1.4 o compilador vai emitir `warnings` em lugares onde
+  esta ambiguidade existir.
+  <sup>[[link](#parenteses-e-funcoes-aridade-zero)]</sup>
 
   ```elixir
-  defp do_stuff, do: ...
+  defp fazer_algo, do: ...
 
   # não recomendado
-  def my_func do
-    do_stuff # is this a variable or a function call?
+  def minha_funcao do
+    fazer_algo # isto é uma variável ou uma chamada de função?
   end
 
   # recomendado
-  def my_func do
-    do_stuff() # this is clearly a function call
+  def minha_funcao do
+    fazer_algo() # isto claramente é uma chamada de função
   end
   ```
 
@@ -1054,7 +1054,7 @@ directives (see [Modules](#modulos)).
   @type long_union_type :: some_type | another_type | some_other_type |
                            a_final_type
 
-  # also recomendado - one type per line
+  # também recomendado - one type per line
   @type long_union_type :: some_type |
                            another_type |
                            some_other_type |
