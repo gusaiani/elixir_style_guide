@@ -420,8 +420,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="true-como-ultima-condicao"></a>
-  Use `true` como a ultima condição do `cond` quando você precisa de uma
-  cláusula que sempre de match.
+  Use `true` como a última condição do `cond` quando você precisa de uma
+  cláusula que sempre dê match.
   <sup>[[link](#true-como-ultima-condicao)]</sup>
 
   ```elixir
@@ -459,7 +459,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="chamada-de-funcao-com-parenteses"></a>
-  Use parenteses em chamadas de função, especialmente dentre de uma pipeline.
+  Use parênteses em chamadas de função, especialmente dentro de uma pipeline.
   <sup>[[link](#chamada-de-funcao-com-parentese)]</sup>
 
   ```elixir
@@ -476,9 +476,9 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   2 |> rem(3) |> g
   ```
 
-* <a name="chamadas-de-macro-e-parenteses"></a>
-  Omita parenteses em chamadas de macro onde um bloco `do` é passado.
-  <sup>[[link](#chamadas-de-macro-e-parenteses)]</sup>
+* <a name="chamadas-de-macro-e-parênteses"></a>
+  Omita parênteses em chamadas de macro onde um bloco `do` é passado.
+  <sup>[[link](#chamadas-de-macro-e-parênteses)]</sup>
 
   ```elixir
   # não recomendado
