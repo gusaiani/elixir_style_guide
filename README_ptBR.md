@@ -707,7 +707,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   # Use pontuação em frases completas.
   ```
 
-#### Anotaçóes em Comentários
+#### Anotações em Comentários
 
 * <a name="anotacoes"></a>
   Anotações normalmente devem vir na linha imediatamente acima do
