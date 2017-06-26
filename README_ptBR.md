@@ -531,21 +531,21 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="keyword-list-syntax"></a>
-  Always use the special syntax for keyword lists.
-  <sup>[[link](#keyword-list-syntax)]</sup>
+* <a name="sintaxe-listas-palavra-chave"></a>
+  Sempre use a sintaxe simplificada para listas de palavras-chave.
+  <sup>[[link](#sintaxe-listas-palavra-chave)]</sup>
 
   ```elixir
   # não recomendado
-  some_value = [{:a, "baz"}, {:b, "qux"}]
+  algum_valor = [{:a, "baz"}, {:b, "qux"}]
 
   # recomendado
-  some_value = [a: "baz", b: "qux"]
+  algum_valor = [a: "baz", b: "qux"]
   ```
 
-* <a name="keyword-list-brackets"></a>
-  Omit square brackets from keyword lists whenever they are optional.
-  <sup>[[link](#keyword-list-brackets)]</sup>
+* <a name="colchetes-listas-palavras-chave"></a>
+  Omita colchetes de listas de palavras-chave sempre que eles forem opcionais.
+  <sup>[[link](#colchetes-listas-palavras-chave)]</sup>
 
   ```elixir
   # não recomendado
@@ -555,10 +555,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   alguma_funcao(foo, bar, a: "baz", b: "qux")
   ```
 
-* <a name="with-clauses"></a>
-  Indent and align successive `with` clauses.
-  Put the `do:` argument on a new line, indented normally.
-  <sup>[[link](#with-clauses)]</sup>
+* <a name="clausulas-with"></a>
+  Indente e alinhe cláusulas `with` sucessivas.
+  Coloque o argumento `do:` em uma nova linha, indentada normalmente.
+  <sup>[[link](#clausulas-with)]</sup>
 
   ```elixir
   with {:ok, foo} <- fetch(opts, :foo),
@@ -567,8 +567,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="with-else"></a>
-  If the `with` expression has a `do` block with more than one line, or has an
-  `else` option, use multiline syntax.
+  Se a expressão `with` tiver um bloco `do` com mais de uma linha, ou tem uma
+  opção `else`, use a sintaxe multilinha.
   <sup>[[link](#with-else)]</sup>
 
   ```elixir
@@ -642,11 +642,11 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="nome-de-macro-de-predicado-com-guards"></a>
-  Os nomes das macros predicadas (funções de geração de tempo de compilação que retornam um
+* <a name="nome-de-macro-com-predicado-em-guards"></a>
+  Os nomes das macros com predicado (funções de geração de tempo de compilação que retornam um
   valor booleano) _que podem ser usadas dentro de guards_ devem ser prefixados com `is_`.
   Para uma lista de expressões permitidas, veja nos documentos [Guard][Guard Expressions].
-  <sup>[[link](#nome-de-macro-de-predicado-com-guards)]</sup>
+  <sup>[[link](#nome-de-macro-com-predicado-em-guards)]</sup>
 
   ```elixir
   defmacro is_cool(var) do
@@ -655,7 +655,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="nome-de-macro-de-predicado-sem-guards"></a>
-  Os nomes de funções predicadas _que não podem ser usadas em guards_ devem
+  Os nomes de funções com predicados _que não podem ser usadas em guards_ devem
   ter um ponto de interrogação à direita (`?`) em vez do prefixo `is_` (ou similar).
   <sup>[[link](#nome-de-macro-de-predicado-sem-guards)]</sup>
 
@@ -670,102 +670,100 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#funcoes-privadas-com-mesmo-nome-de-publicas)]</sup>
 
   ```elixir
-  def sum(list), do: do_sum(list, 0)
+  def soma(list), do: do_soma(list, 0)
 
   # funções privadas
-  defp do_sum([], total), do: total
-  defp do_sum([head | tail], total), do: do_sum(tail, head + total)
+  defp do_soma([], total), do: total
+  defp do_soma([head | tail], total), do: do_soma(tail, head + total)
   ```
 
 ### Comentários
 
-* <a name="expressive-code"></a>
-  Write expressive code and try to convey your program's intention through
-  control-flow, structure and naming.
-  <sup>[[link](#expressive-code)]</sup>
+* <a name="codigo-expressivo"></a>
+  Escreva código expressivo e busque transmitir a intenção do seu programa
+  através de fluxo de controle, estrutura e nomenclaturas.
+  <sup>[[link](#codigo-expressivo)]</sup>
 
-* <a name="comment-leading-spaces"></a>
-  Use one space between the leading `#` character of the comment and the text of
-  the comment.
-  <sup>[[link](#comment-leading-spaces)]</sup>
+* <a name="comentários-espacos-esquerda"></a>
+  Use um espaço entre o `#` do comentário e o texto do comentário.
+  <sup>[[link](#comentários-espacos-esquerda)]</sup>
 
   ```elixir
-  String.first(alguma_string) # não recomendado
+  String.first(alguma_string) #não recomendado
   String.first(alguma_string) # recomendado
   ```
 
-* <a name="comment-grammar"></a>
-  Comments longer than a word are capitalized, and sentences use punctuation.
-  Use [one space][Sentence Spacing] after periods.
-  <sup>[[link](#comment-grammar)]</sup>
+* <a name="gramatica-comentario"></a>
+  Comentários de mais de uma palavra começam com maiúscula, e frases recebem pontuação.
+  Use [um espaço][Sentence Spacing] depois dos pontos finais.
+  <sup>[[link](#gramatica-comentario)]</sup>
 
   ```elixir
   # não recomendado
-  # these lowercase comments are missing punctuation
+  # este comentário em minúsculas não tem pontuação
 
   # recomendado
-  # Capitalization example
-  # Use punctuation for complete sentences.
+  # Exemplo com maiúscula
+  # Use pontuação em frases completas.
   ```
 
 #### Anotaçóes em Comentários
 
-* <a name="annotations"></a>
-  Annotations should usually be written on the line immediately above the
-  relevant code.
-  <sup>[[link](#annotations)]</sup>
+* <a name="anotacoes"></a>
+  Anotações normalmente devem vir na linha imediatamente acima do
+  respectivo código.
+  <sup>[[link](#anotacoes)]</sup>
 
-* <a name="annotation-keyword"></a>
-  The annotation keyword is uppercase, and is followed by a colon and a space,
-  then a note describing the problem.
-  <sup>[[link](#annotation-keyword)]</sup>
+* <a name="palavra-chave-anotacao"></a>
+  A palavra-chave de anotação é inteira em maiúsculas, seguida por dois-pontos e espaço,
+  e então uma descrição do problema.
+  <sup>[[link](#palavra-chave-anotacao)]</sup>
 
   ```elixir
-  # TODO: Deprecate in v1.5.
+  # TODO: Deprecate in v2.0.
   def alguma_funcao(arg), do: {:ok, arg}
   ```
 
-* <a name="exceptions-to-annotations"></a>
-  In cases where the problem is so obvious that any documentation would be
-  redundant, annotations may be left at the end of the offending line with no
-  note.
-  This usage should be the exception and not the rule.
-  <sup>[[link](#exceptions-to-annotations)]</sup>
+* <a name="excecoes-anotacoes"></a>
+  Nos casos em que o problema é tão óbvio que qualquer documentação seria
+  redundante, as anotações podem vir no fim da linha em questão sem comentário adicional.
+  Esta forma deve ser a exceção e não a regra.
+  <sup>[[link](#excecoes-anotacoes)]</sup>
 
   ```elixir
   start_task()
   Process.sleep(5000) # FIXME
   ```
 
-* <a name="todo-notes"></a>
-  Use `TODO` to note missing features or functionality that should be added at a
-  later date.
-  <sup>[[link](#todo-notes)]</sup>
+* <a name="notas-todo"></a>
+  Use `TODO` para anotar funcionalidades que faltam ou funcionalidades que devem
+  ser acrescentadas no futuro.
+  <sup>[[link](#notas-todo)]</sup>
 
-* <a name="fixme-notes"></a>
-  Use `FIXME` to note broken code that needs to be fixed.
-  <sup>[[link](#fixme-notes)]</sup>
+* <a name="notas-fixme"></a>
+  Use `FIXME` para anotar código quebrado que precisa ser corrigido.
+  <sup>[[link](#notas-fixme)]</sup>
 
-* <a name="optimize-notes"></a>
-  Use `OPTIMIZE` to note slow or inefficient code that may cause performance
-  problems.
-  <sup>[[link](#optimize-notes)]</sup>
+* <a name="notas-optimize"></a>
+  Use `OPTIMIZE` para anotar código lento ou ineficiente que pode causar
+  problemas de desempenho.
+  <sup>[[link](#notas-optimize)]</sup>
 
-* <a name="hack-notes"></a>
-  Use `HACK` to note code smells where questionable coding practices were used
-  and should be refactored away.
-  <sup>[[link](#hack-notes)]</sup>
+* <a name="notas-hack"></a>
+  Use `HACK` para anotar lugares onde existem práticas questionáveis e que
+  deveriam ser refatoradas.
+  <sup>[[link](#notas-hack)]</sup>
 
-* <a name="review-notes"></a>
-  Use `REVIEW` to note anything that should be looked at to confirm it is
-  working as intended.
-  For example: `REVIEW: Are we sure this is how the client does X currently?`
-  <sup>[[link](#review-notes)]</sup>
+* <a name="notas-review"></a>
+  Use `REVIEW` para anotar qualquer coisa que precise ser revista para confirmar
+  que está funcionando conforme pretendido.
+  Exemplo: `REVIEW: Temos certeza que é assim que o cliente faz X hoje em dia?`
+  <sup>[[link](#notas-review)]</sup>
 
-* <a name="custom-keywords"></a>
-  Use other custom annotation keywords if it feels appropriate, but be sure to
-  document them in your project's `README` or similar.
-  <sup>[[link](#custom-keywords)]</sup>
+* <a name="palavras-chave-customizadas"></a>
+  Use outras palavras-chave customizadas se apropriado, mas se certifique de
+  documentá-las no `README` do seu projeto ou algo similar.
+  <sup>[[link](#palavras-chave-customizadas)]</sup>
 
 ### Módulos
 
@@ -1289,4 +1287,4 @@ project.
 [Português]: https://github.com/gusaiani/elixir_style_guide/blob/master/README_ptBR.md
 [Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
-[Stargazers]: https://github.com/christopheradams/elixir_style_guide/stargazers
+[Stargazers]: Use://github.com/christopheradams/elixir_style_guide/stargazers
