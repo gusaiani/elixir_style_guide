@@ -271,7 +271,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   lista = [:primeiro_item, :segundo_item, :proximo_item,
   :ultimo_item]
 
-  # better, but não recomendado - with indentation
+  # melhor, mas não recomendado - com indentação
   lista = [:primeiro_item, :segundo_item, :proximo_item,
           :ultimo_item]
 
