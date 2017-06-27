@@ -1117,54 +1117,54 @@ diretivas (veja [Módulos](#modulos)).
   defstruct [:nome, params: [], ativo: true]
   ```
 
-* <a name="additional-struct-def-lines"></a>
-  Indent additional lines of the struct definition, keeping the first keys
+* <a name="linhas-defstruct-adicionais"></a>
+  Indente linhas adicionais de defstruct, mantendo as primeiras chaves alinhadas.
   aligned.
-  <sup>[[link](#additional-struct-def-lines)]</sup>
+  <sup>[[link](#linhas-defstruct-adicionais)]</sup>
 
   ```elixir
-  defstruct foo: "test", bar: true, baz: false,
+  defstruct foo: "teste", bar: true, baz: false,
             qux: false, quux: 1
   ```
 
 ### Exceções
 
-* <a name="exception-names"></a>
-  Make exception names end with a trailing `Error`.
-  <sup>[[link](#exception-names)]</sup>
+* <a name="nomes-excecoes"></a>
+  Adicione o sufixo `Error` aos nomes de exceções.
+  <sup>[[link](#nomes-excecoes)]</sup>
 
   ```elixir
   # não recomendado
   defmodule BadHTTPCode do
-    defexception [:message]
+    defexception [:mensagem]
   end
 
   defmodule BadHTTPCodeException do
-    defexception [:message]
+    defexception [:mensagem]
   end
 
   # recomendado
   defmodule BadHTTPCodeError do
-    defexception [:message]
+    defexception [:mensagem]
   end
   ```
 
-* <a name="lowercase-error-messages"></a>
-  Use lowercase error messages when raising exceptions, with no trailing
-  punctuation.
-  <sup>[[link](#lowercase-error-messages)]</sup>
+* <a name="mensagens-erro-minusculas"></a>
+  Use minúsculas em mensagens de erro quando emitindo exceções, sem pontuação
+  ao final.
+  <sup>[[link](#mensagens-erro-minusculas)]</sup>
 
   ```elixir
   # não recomendado
-  raise ArgumentError, "This is not valid."
+  raise ArgumentError, "Isto não é válido."
 
   # recomendado
-  raise ArgumentError, "this is not valid"
+  raise ArgumentError, "isto é válido"
   ```
 
 ### Coleções
 
-_No guidelines for collections have been added yet._
+Esta parte do guia ainda não foi adicionada.
 
 ### Strings
 
