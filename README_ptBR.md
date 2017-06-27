@@ -1013,25 +1013,26 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
 
 ### Typespecs
 
-Typespecs are notation for declaring types and specifications, for
-documentation or for the static analysis tool Dialyzer.
+Typespecs são notações para declarar tipos e especificações,
+para documentação ou para o Dialyzer (ferramenta de
+análise estática).
 
-Custom types should be defined at the top of the module with the other
-directives (see [Modules](#modulos)).
+Tipos customizados devem ser definidos no topo do módulo com as outras
+diretivas (veja [Módulos](#modulos)).
 
 * <a name="typedocs"></a>
-  Place `@typedoc` and `@type` definitions together, and separate each
-  pair with a blank line.
+  Aplique definições `@typedoc` e `@type` juntas, e separe cada par
+  com uma linha em branco.
   <sup>[[link](#typedocs)]</sup>
 
   ```elixir
   defmodule AlgumModulo do
     @moduledoc false
 
-    @typedoc "The name"
+    @typedoc "O nome"
     @type name :: atom
 
-    @typedoc "The result"
+    @typedoc "O resultado"
     @type result :: {:ok, term} | {:error, term}
 
     ...
