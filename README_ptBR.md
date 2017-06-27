@@ -1164,67 +1164,68 @@ diretivas (veja [Módulos](#modulos)).
 
 ### Coleções
 
-_Esta parte do guia ainda não foi adicionada._
+A secão de Coleções do guia ainda não foi adicionada._
 
 ### Strings
 
-* <a name="strings-matching-with-concatenator"></a>
-  Match strings using the string concatenator rather than binary patterns:
-  <sup>[[link](#strings-matching-with-concatenator)]</sup>
+* <a name="match-strings-com-concatenador"></a>
+  Dê match em strings usando o concatenador de strings, e não
+  padrões binários.
+  <sup>[[link](#match-strings-com-concatenador)]</sup>
 
   ```elixir
   # não recomendado
-  <<"my"::utf8, _resto>> = "my string"
+  <<"minha"::utf8, _resto>> = "minha string"
 
   # recomendado
-  "my" <> _resto = "my string"
+  "minha" <> _resto = "minha string"
   ```
 
 ### Expressões Regulares
 
-_No guidelines for regular expressions have been added yet._
+_A secão de Coleções do guia ainda não foi adicionada._
 
 ### Metaprogramação
 
-* <a name="avoid-metaprogramming"></a>
-  Avoid needless metaprogramming.
-  <sup>[[link](#avoid-metaprogramming)]</sup>
+* <a name="evite-metaprogramacao"></a>
+  Evite metaprogramação desnecessária.
+  <sup>[[link](#evite-metaprogramacao)]</sup>
 
 ### Testes
 
-* <a name="testing-assert-order"></a>
-  When writing [ExUnit] assertions, be consistent with the order of the expected
-  and actual values under testing.
-  Prefer placing the expected result on the right, unless the assertion is a
-  pattern match.
-  <sup>[[link](#testing-assert-order)]</sup>
+* <a name="testando-ordem-assert"></a>
+  Ao escrever asserções [ExUnit], mantenha a consistência entre a ordem dos
+  valores esperados e reais que estão sob teste.
+  Prefira usar o resultado esperado à direita, a não ser que a asserção
+  seja um pattern match.
+  <sup>[[link](#testando-ordem-assert)]</sup>
 
   ```elixir
-  # recomendado - expected result on the right
-  assert actual_function(1) == true
-  assert actual_function(2) == false
+  # recomendado - resultado esperado à direita
+  assert minha_funcao(1) == true
+  assert minha_funcao(2) == false
 
-  # não recomendado - inconsistent order
-  assert actual_function(1) == true
-  assert false == actual_function(2)
+  # não recomendado - ordem inconsistente
+  assert minha_funcao(1) == true
+  assert false == minha_funcao(2)
 
-  # required - the assertion is a pattern match
-  assert {:ok, expected} = actual_function(3)
+  # obrigatório - a asserção é um pattern match
+  assert {:ok, expected} = minha_funcao(3)
   ```
 
 ### Guias de Estilo Alternativos
 
 * [Aleksei Magusev's Elixir Style Guide](https://github.com/lexmag/elixir-style-guide#readme)
-  — An opinionated Elixir style guide stemming from the coding style practiced
-  in the Elixir core libraries.
-  Developed by [Aleksei Magusev](https://github.com/lexmag) and
-  [Andrea Leopardi](https://github.com/whatyouhide), members of Elixir core team.
-  While the Elixir project doesn't adhere to any specific style guide,
-  this is the closest available guide to its conventions.
+  — Um guia de estilo Elixir opiniático inspirado nas práticas encontradas
+  nas bibliotecas 'core' do Elixir.
+  Desenvolvido por [Aleksei Magusev](https://github.com/lexmag) e
+  [Andrea Leopardi](https://github.com/whatyouhide), membros da equipe principal do Elixir.
+  Apesar do projeto do Elixir não aderir a um guia de estilo específico,
+  este é o guia mais próximo de suas convenções.
 
 * [Credo's Elixir Style Guide](https://github.com/rrrene/elixir-style-guide#readme)
-  — Style Guide for the Elixir language, implemented by
-  [Credo](http://credo-ci.org) static code analysis tool.
+  — Guia de Estilo para a linguagem Elixir, implementada pelo
+  [Credo](http://credo-ci.org), ferramenta de análise estática de código.
 
 ### Ferramentas
 
