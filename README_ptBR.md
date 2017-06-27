@@ -1039,25 +1039,25 @@ diretivas (veja [Módulos](#modulos)).
   end
   ```
 
-* <a name="union-types"></a>
-  If a union type is too long to fit on a single line, add a newline
-  and indent with spaces to keep the types aligned.
-  <sup>[[link](#union-types)]</sup>
+* <a name="tipos-uniao"></a>
+  Se um tipo de união for longo demais para caber em um só linha, adicione
+  uma nova linha e indente com espaços para alinhar os tipos.
+  <sup>[[link](#tipos-uniao)]</sup>
 
   ```elixir
-  # não recomendado - no indentation
-  @type long_union_type :: some_type | another_type | some_other_type |
-  a_final_type
+  # não recomendado - sem indentação
+  @type tipo_de_uniao_longo :: algum_tipo | outro_tipo | algum_outro_tipo |
+  um_ultimo_tipo
 
   # recomendado
-  @type long_union_type :: some_type | another_type | some_other_type |
-                           a_final_type
+  @type tipo_de_uniao_longo :: algum_tipo | outro_tipo | algum_outro_tipo |
+                               um_ultimo_tipo
 
-  # também recomendado - one type per line
-  @type long_union_type :: some_type |
-                           another_type |
-                           some_other_type |
-                           a_final_type
+  # também recomendado - um tipo por linha
+  @type tipo_de_uniao_longo :: algum_tipo |
+                               outro_tipo |
+                               algum_outro_tipo |
+                               um_ultimo_tipo
   ```
 
 * <a name="naming-main-types"></a>
