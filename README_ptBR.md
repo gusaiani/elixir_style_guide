@@ -1088,32 +1088,33 @@ diretivas (veja [Módulos](#modulos)).
 
 ### Structs
 
-* <a name="nil-struct-field-defaults"></a>
-  Use a list of atoms for struct fields that default to `nil`, followed by the
-  other keywords.
-  <sup>[[link](#nil-struct-field-defaults)]</sup>
+* <a name="defaults-campos-struct-nil"></a>
+  Use uma lista de átomos para campos de struct que tenham default de `nil`,
+  seguidos por outras palavras-chave.
+  <sup>[[link](#defaults-campos-struct-nil)]</sup>
 
   ```elixir
   # não recomendado
-  defstruct name: nil, params: nil, active: true
+  defstruct nome: nil, params: nil, ativo: true
 
   # recomendado
-  defstruct [:name, :params, active: true]
+  defstruct [:nome, :params, ativo: true]
   ```
 
-* <a name="struct-def-brackets"></a>
-  Omit square brackets when the argument of a `defstruct` is a keyword list.
-  <sup>[[link](#struct-def-brackets)]</sup>
+* <a name="colchetes-defstruct"></a>
+  Omita colchetes quando o argumento de um `defstruct` for uma lista
+  de palavras-chave.
+  <sup>[[link](#colchetes-defstruct)]</sup>
 
   ```elixir
   # não recomendado
-  defstruct [params: [], active: true]
+  defstruct [params: [], ativo: true]
 
   # recomendado
-  defstruct params: [], active: true
+  defstruct params: [], ativo: true
 
-  # required - brackets are not optional, with at least one atom in the list
-  defstruct [:name, params: [], active: true]
+  # obrigatório - colchetes não são opcionais, com ao menos um átomo na lista
+  defstruct [:nome, params: [], ativo: true]
   ```
 
 * <a name="additional-struct-def-lines"></a>
