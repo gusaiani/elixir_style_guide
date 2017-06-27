@@ -767,44 +767,44 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
 ### Módulos
 
-* <a name="one-module-per-file"></a>
-  Use one module per file unless the module is only used internally by another
-  module (such as a test).
-  <sup>[[link](#one-module-per-file)]</sup>
+* <a name="um-modulo-por-arquivo"></a>
+  Use um módulo por arquivo, a não ser que o módulo seja usado apenas
+  internamente por outro módulo (um teste, por exemplo).
+  <sup>[[link](#um-modulo-por-arquivo)]</sup>
 
-* <a name="underscored-filenames"></a>
-  Use `snake_case` file names for `CamelCase` module names.
-  <sup>[[link](#underscored-filenames)]</sup>
+* <a name="nomes-de-arquivo-underscore"></a>
+  Use nomes de arquivo em `snake_case` e nomes de módulo em`CamelCase`.
+  <sup>[[link](#nomes-de-arquivo-underscore)]</sup>
 
   ```elixir
-  # file is called some_module.ex
+  # arquivo chamado algum_modulo.ex
 
-  defmodule SomeModule do
+  defmodule AlgumModulo do
   end
   ```
 
-* <a name="module-name-nesting"></a>
-  Represent each level of nesting within a module name as a directory.
-  <sup>[[link](#module-name-nesting)]</sup>
+* <a name="aninhamento-nomes-modulo"></a>
+  Expresse cada nível de aninhamento em um nome de módulo como um diretório.
+  <sup>[[link](#aninhamento-nomes-modulo)]</sup>
 
   ```elixir
-  # file is called parser/core/xml_parser.ex
+  # arquivo chamado parser/core/xml_parser.ex
 
   defmodule Parser.Core.XMLParser do
   end
   ```
 
-* <a name="defmodule-spacing"></a>
-  Don't put a blank line after `defmodule`.
-  <sup>[[link](#defmodule-spacing)]</sup>
+* <a name="espacamento-defmodule"></a>
+  Não use uma linha em branco após um `defmodule`.
+  <sup>[[link](#espacamento-defmodule)]</sup>
 
-* <a name="module-block-spacing"></a>
-  Put a blank line after module-level code blocks.
-  <sup>[[link](#module-block-spacing)]</sup>
+* <a name="espacamento-blocos-module"></a>
+  Use uma linha em branco após blocos de código em módulos.
+  <sup>[[link](#espacamento-blocos-module)]</sup>
 
-* <a name="module-attribute-ordering"></a>
-  List module attributes and directives in the following order:
-  <sup>[[link](#module-attribute-ordering)]</sup>
+* <a name="ordenacao-atributos-modulo"></a>
+  Liste atributos e diretivas de módulo na seguinte ordem:
+  <sup>[[link](#ordenacao-atributos-modulo)]</sup>
 
   1. `@moduledoc`
   1. `@behaviour`
@@ -819,25 +819,25 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   1. `@macrocallback`
   1. `@optional_callbacks`
 
-  Add a blank line between each grouping, and sort the terms (like module names)
-  alphabetically.
-  Here's an overall example of how you should order things in your modules:
+  Adicione uma linha em branco entre cada agrupamento, e ordene os termos
+  (como nomes de módulos) alfabeticamente.
+  Abaixo um exemplo geral de como você deve ordenar as coisas em seus módulos:
 
   ```elixir
-  defmodule MyModule do
+  defmodule MeuModulo do
     @moduledoc """
-    An example module
+    Exemplo de módulo
     """
 
-    @behaviour MyBehaviour
+    @behaviour MeuBehaviour
 
     use GenServer
 
-    import Something
-    import SomethingElse
+    import AlgumaCoisa
+    import OutraCoisa
 
-    alias My.Long.Module.Name
-    alias My.Other.Module.Example
+    alias Meu.Nome.Comprido.Modulo
+    alias Meu.Outro.Exemplo.Modulo
 
     require Integer
 
@@ -850,46 +850,46 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
     @callback alguma_funcao(term) :: :ok | {:error, term}
 
-    @macrocallback macro_name(term) :: Macro.t
+    @macrocallback nome_macro(term) :: Macro.t
 
-    @optional_callbacks macro_name: 1
+    @optional_callbacks nome_macro: 1
 
     ...
   end
   ```
 
-* <a name="module-pseudo-variable"></a>
-  Use the `__MODULE__` pseudo variable when a module refers to itself. This
-  avoids having to update any self-references when the module name changes.
-  <sup>[[link](#module-pseudo-variable)]</sup>
+* <a name="pseudo-variavel-modulo"></a>
+  Use a pseudo variável `__MODULE__` quando um módulo se referir a si mesmo.
+  Isto previne que tenhamos que atualizar auto-referências quando o nome do módulo mudar.
+  <sup>[[link](#pseudo-variavel-modulo)]</sup>
 
   ```elixir
-  defmodule SomeProject.SomeModule do
-    defstruct [:name]
+  defmodule AlgumProjeto.AlgumModulo do
+    defstruct [:nome]
 
-    def name(%__MODULE__{name: name}), do: name
+    def nome(%__MODULE__{nome: nome}), do: nome
   end
   ```
 
-* <a name="alias-self-referencing-modules"></a>
-  If you want a prettier name for a module self-reference, set up an alias.
-  <sup>[[link](#alias-self-referencing-modules)]</sup>
+* <a name="alias-modulos-auto-referentes"></a>
+  Se você quiser um nome mais bonito para uma auto-referência de módulo,
+  crie um alias.
+  <sup>[[link](#alias-modulos-auto-referentes)]</sup>
 
   ```elixir
-  defmodule SomeProject.SomeModule do
-    alias __MODULE__, as: SomeModule
+  defmodule AlgumProjeto.AlgumModulo do
+    alias __MODULE__, as: AlgumModulo
 
-    defstruct [:name]
+    defstruct [:nome]
 
-    def name(%SomeModule{name: name}), do: name
+    def nome(%AlgumModulo{nome: nome}), do: nome
   end
   ```
 
-* <a name="repetitive-module-names"></a>
-  Avoid repeating fragments in module names and namespaces.
-  This improves overall readability and
-  eliminates [ambiguous aliases][Conflicting Aliases].
-  <sup>[[link](#repetitive-module-names)]</sup>
+* <a name="nomes-modulo-repetitivos"></a>
+  Evite repetir fragmentos em nomes e namespaces de módulos.
+  Isto melhora a legibilidade e elimina [aliases ambíguos][Conflicting Aliases].
+  <sup>[[link](#nomes-modulo-repetitivos)]</sup>
 
   ```elixir
   # não recomendado
@@ -916,7 +916,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   ```elixir
   # não recomendado
 
-  defmodule SomeModule do
+  defmodule AlgumModulo do
 
     @moduledoc """
     About the module
@@ -925,7 +925,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   end
 
   defmodule AnotherModule do
-    use SomeModule
+    use AlgumModulo
     @moduledoc """
     About the module
     """
@@ -934,7 +934,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
 
   # recomendado
 
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc """
     About the module
     """
@@ -947,7 +947,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   <sup>[[link](#moduledoc-false)]</sup>
 
   ```elixir
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc false
     ...
   end
@@ -960,7 +960,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   ```elixir
   # não recomendado
 
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc """
     About the module
     """
@@ -968,7 +968,7 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   end
 
   # recomendado
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc """
     About the module
     """
@@ -984,28 +984,28 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   ```elixir
   # não recomendado
 
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc "About the module"
   end
 
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc """
     About the module
 
     Examples:
-    iex> SomeModule.alguma_funcao
+    iex> AlgumModulo.alguma_funcao
     :result
     """
   end
 
   # recomendado
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc """
     About the module
 
     ## Examples
 
-        iex> SomeModule.alguma_funcao
+        iex> AlgumModulo.alguma_funcao
         :result
     """
   end
@@ -1025,7 +1025,7 @@ directives (see [Modules](#modulos)).
   <sup>[[link](#typedocs)]</sup>
 
   ```elixir
-  defmodule SomeModule do
+  defmodule AlgumModulo do
     @moduledoc false
 
     @typedoc "The name"
