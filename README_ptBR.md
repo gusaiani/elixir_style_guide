@@ -1229,34 +1229,33 @@ _A secão de Coleções do guia ainda não foi adicionada._
 
 ### Ferramentas
 
-Refer to [Awesome Elixir][Code Analysis] for libraries and tools that can help
-with code analysis and style linting.
+Confira o [Awesome Elixir][Code Analysis] para encontrar bibliotecas e
+ferramentas para te ajudar em análise e linting de código.
 
 ## Participando
 
 ### Contribuindo
 
-It's our hope that this will become a central hub for community discussion on
-best practices in Elixir.
-Feel free to open tickets or send pull requests with improvements.
-Thanks in advance for your help!
+Esperamos que este se torne um ponto de encontro para discussões da comunidade
+sobre as melhores práticas em Elixir.
+Sinta-se bem-vindo(a) a abrir issues ou enviar pull requests com melhorias.
+Obrigado desde já por sua ajuda!
 
-Check the [contributing guidelines][Contribuindo]
-and [code of conduct][Code Of Conduct] for more information.
+Confira as [guidelines de contribuição - em inglês][Contribuindo]
+e o [código de conduta][Code Of Conduct] para saber mais.
 
 ### Espalhe
 
-A community style guide is meaningless without the community's support. Please
-tweet, [star][Stargazers], and let any Elixir programmer know
-about [this guide][Elixir Style Guide] so they can contribute.
+Um guia de estilo de uma comunidade não faz sentido sem o apoio da comunidade.
+Por gentileza tuíte, [dê estrelas][Stargazers] e compartilhe [este guia][Elixir Style Guide] com todos, para que todos possam contribuir.
 
 ## Cópias
 
-### License
+### Licença
 
-![Creative Commons Licença](http://i.creativecommons.org/l/by/3.0/88x31.png)
-This work is licensed under a
-[Creative Commons Attribution 3.0 Unported License][Licença]
+![Licença Creative Commons](http://i.creativecommons.org/l/by/3.0/88x31.png)
+Este trabalho é licenciada sob uma
+[Licença Creative Commons Attribution 3.0 Unported][Licença]
 
 ### Atribuição
 
