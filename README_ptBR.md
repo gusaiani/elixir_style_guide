@@ -1164,7 +1164,7 @@ diretivas (veja [Módulos](#modulos)).
 
 ### Coleções
 
-Esta parte do guia ainda não foi adicionada.
+_Esta parte do guia ainda não foi adicionada._
 
 ### Strings
 
