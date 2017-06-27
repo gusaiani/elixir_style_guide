@@ -848,9 +848,9 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     @module_attribute :foo
     @other_attribute 100
 
-    @callback alguma_funcao(term) :: :ok | {:error, term}
+    @callback alguma_funcao(termo) :: :ok | {:error, termo}
 
-    @macrocallback nome_macro(term) :: Macro.t
+    @macrocallback nome_macro(termo) :: Macro.t
 
     @optional_callbacks nome_macro: 1
 
@@ -1033,7 +1033,7 @@ diretivas (veja [Módulos](#modulos)).
     @type name :: atom
 
     @typedoc "O resultado"
-    @type result :: {:ok, term} | {:error, term}
+    @type result :: {:ok, termo} | {:error, termo}
 
     ...
   end
@@ -1060,29 +1060,29 @@ diretivas (veja [Módulos](#modulos)).
                                um_ultimo_tipo
   ```
 
-* <a name="naming-main-types"></a>
-  Name the main type for a module `t`, for example: the type specification for a
-  struct.
-  <sup>[[link](#naming-main-types)]</sup>
+* <a name="nomeando-tipos-principais"></a>
+  Nomeie como `t` o tipo principal de um módulo, por exemplo: a especificação
+  de tipo para um struct.
+  <sup>[[link](#nomeando-tipos-principais)]</sup>
 
   ```elixir
-  defstruct name: nil, params: []
+  defstruct nome: nil, params: []
 
   @type t :: %__MODULE__{
-    name: String.t | nil,
+    nome: String.t | nil,
     params: Keyword.t
   }
   ```
 
-* <a name="spec-spacing"></a>
-  Place specifications right before the function definition,
-  without separating them by a blank line.
-  <sup>[[link](#spec-spacing)]</sup>
+* <a name="espacamento-specs"></a>
+  Escreva especificações logo acima da definicação de uma função, sem separá-los
+  com linha em branco.
+  <sup>[[link](#espacamento-specs)]</sup>
 
   ```elixir
-  @spec alguma_funcao(term) :: result
-  def alguma_funcao(some_data) do
-    {:ok, some_data}
+  @spec alguma_funcao(termo) :: result
+  def alguma_funcao(algum_dado) do
+    {:ok, algum_dado}
   end
   ```
 
