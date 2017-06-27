@@ -905,12 +905,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
 ### Documentação
 
-Documentation in Elixir (when read either in `iex` with `h` or generated with
-[ExDoc]) uses the [Module Attributes] `@moduledoc` and `@doc`.
+Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
+[ExDoc]) usa os [Atributos de Módulo] `@moduledoc` e `@doc`.
 
 * <a name="moduledocs"></a>
-  Always include a `@moduledoc` attribute in the line right after `defmodule` in
-  your module.
+  Inclua sempre um atributo `@moduledoc` na linha imediatamenteposterior ao `defmodule`
+ em seu módulo.
   <sup>[[link](#moduledocs)]</sup>
 
   ```elixir
@@ -919,15 +919,15 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   defmodule AlgumModulo do
 
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
     """
     ...
   end
 
-  defmodule AnotherModule do
+  defmodule OutroModulo do
     use AlgumModulo
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
     """
     ...
   end
@@ -936,14 +936,14 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
 
   defmodule AlgumModulo do
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
     """
     ...
   end
   ```
 
 * <a name="moduledoc-false"></a>
-  Use `@moduledoc false` if you do not intend on documenting the module.
+  Use `@moduledoc false` se você não pretende documentar o módulo.
   <sup>[[link](#moduledoc-false)]</sup>
 
   ```elixir
@@ -953,60 +953,60 @@ Documentation in Elixir (when read either in `iex` with `h` or generated with
   end
   ```
 
-* <a name="moduledoc-spacing"></a>
-  Separate code after the `@moduledoc` with a blank line.
-  <sup>[[link](#moduledoc-spacing)]</sup>
+* <a name="espacamento-moduledoc"></a>
+  Separe o código que vem depois do `@moduledoc` com uma linha em branco.
+  <sup>[[link](#espacamento-moduledoc)]</sup>
 
   ```elixir
   # não recomendado
 
   defmodule AlgumModulo do
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
     """
-    use AnotherModule
+    use OutroModulo
   end
 
   # recomendado
   defmodule AlgumModulo do
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
     """
 
-    use AnotherModule
+    use OutroModulo
   end
   ```
 
 * <a name="heredocs"></a>
-  Use heredocs with markdown for documentation.
+  Use heredocs com markdown na documentação.
   <sup>[[link](#heredocs)]</sup>
 
   ```elixir
   # não recomendado
 
   defmodule AlgumModulo do
-    @moduledoc "About the module"
+    @moduledoc "Informação sobre o módulo."
   end
 
   defmodule AlgumModulo do
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
 
-    Examples:
+    Exemplos:
     iex> AlgumModulo.alguma_funcao
-    :result
+    :resultado
     """
   end
 
   # recomendado
   defmodule AlgumModulo do
     @moduledoc """
-    About the module
+    Informação sobre o módulo.
 
-    ## Examples
+    ## Exemplos
 
         iex> AlgumModulo.alguma_funcao
-        :result
+        :resultado
     """
   end
   ```
@@ -1283,7 +1283,7 @@ project.
 [Inglês]: https://github.com/christopheradams/elixir_style_guide/README.md
 [Japonês]: https://github.com/kenichirow/elixir_style_guide/blob/master/README-jaJP.md
 [Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
-[Module Attributes]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
+[Atributos de Módulo]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
 [Português]: https://github.com/gusaiani/elixir_style_guide/blob/master/README_ptBR.md
 [Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
