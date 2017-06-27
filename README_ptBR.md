@@ -1241,7 +1241,7 @@ sobre as melhores práticas em Elixir.
 Sinta-se bem-vindo(a) a abrir issues ou enviar pull requests com melhorias.
 Obrigado desde já por sua ajuda!
 
-Confira as [guidelines de contribuição - em inglês][Contribuindo]
+Confira as [dicas de contribuição - em inglês][Contribuindo]
 e o [código de conduta][Code Of Conduct] para saber mais.
 
 ### Espalhe
@@ -1259,13 +1259,14 @@ Este trabalho é licenciada sob uma
 
 ### Atribuição
 
-The structure of this guide, bits of example code, and many of the initial
-points made in this document were borrowed from the [Ruby community style guide].
-A lot of things were applicable to Elixir and allowed us to get _some_ document
+A estrutura deste guia, alguns trechos de código dos exemplos, e muito pontos
+iniciais deste documento foram empresados do [Guia de Estilo da Comunidade Ruby].
+Muitas coisas se aplicavam ao Elixir e nos permitiram publicar _algum_ documento
+mas rápido e dar início ao projeto.
 out quicker to start the conversation.
 
-Here's the [list of people who have kindly contributed][Contributors] to this
-project.
+Aqui está a [lista das pessoas que gentilmente contribuíram][Contributors] com este
+projeto.
 
 <!-- Links -->
 [Chinês Tradicional]: https://github.com/elixirtw/elixir_style_guide/blob/master/README_zhTW.md
@@ -1287,6 +1288,6 @@ project.
 [Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
 [Atributos de Módulo]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
 [Português]: https://github.com/gusaiani/elixir_style_guide/blob/master/README_ptBR.md
-[Ruby community style guide]: https://github.com/bbatsov/ruby-style-guide
+[Guia de Estilo da Comunidade Ruby]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
 [Stargazers]: Use://github.com/christopheradams/elixir_style_guide/stargazers
