@@ -1171,7 +1171,7 @@ diretivas (veja [Módulos](#modulos)).
 
 ### Coleções
 
-A secão de Coleções do guia ainda não foi adicionada._
+A secão de Coleções do guia ainda não foi adicionada.
 
 ### Strings
 
