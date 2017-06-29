@@ -344,14 +344,14 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```elixir
   # não recomendado
   alguma_string =
-    "Hello"
+    "Oi"
     |> String.downcase
     |> String.strip
   outra_string <> alguma_string
 
   # recomendado
   alguma_string =
-    "Hello"
+    "Oi"
     |> String.downcase
     |> String.strip
 
