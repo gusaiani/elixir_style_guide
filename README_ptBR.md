@@ -916,7 +916,7 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
 [ExDoc]) usa os [Atributos de Módulo] `@moduledoc` e `@doc`.
 
 * <a name="moduledocs"></a>
-  Inclua sempre um atributo `@moduledoc` na linha imediatamenteposterior ao `defmodule`
+  Inclua sempre um atributo `@moduledoc` na linha imediatamente posterior ao `defmodule`
  em seu módulo.
   <sup>[[link](#moduledocs)]</sup>
 
