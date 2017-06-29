@@ -592,14 +592,14 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 ### Nomenclatura
 
 * <a name="snake-case"></a>
-  Use `snake_case` para atoms, funções e variáveis.
+  Use `snake_case` para átomos, funções e variáveis.
   <sup>[[link](#snake-case)]</sup>
 
   ```elixir
   # não recomendado
-  :"some atom"
-  :SomeAtom
-  :someAtom
+  :"algum átomo"
+  :AlgumAtomo
+  :algumAtomo
 
   algumaVar = 5
 
