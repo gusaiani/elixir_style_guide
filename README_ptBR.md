@@ -366,7 +366,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     else
       "Tchau"
     end
-  alguma_coisa |> String.downcase
+  String.downcase(alguma_coisa)
 
   # recomendado
   alguma_coisa =
@@ -376,7 +376,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
       "Tchau"
     end
 
-  alguma_coisa |> String.downcase
+  String.downcase(alguma_coisa)
   ```
 
 * <a name="do-com-if-unless-multilinha"></a>
