@@ -504,7 +504,6 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 * <a name="parenteses-e-expressoes-de-funcoes"></a>
   Parênteses são opcionais em chamadas de função (fora de pipelines) quando o
   último argumento é uma expressão de função.
-
   <sup>[[link](#parenteses-e-expressoes-de-funcoes)]</sup>
 
   ```elixir
