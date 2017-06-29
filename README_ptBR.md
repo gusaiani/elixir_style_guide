@@ -111,7 +111,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   0 - 1 == -1
-  ^pinned = alguma_func()
+  ^pinned = alguma_funcao()
   5 in 1..10
   ```
 
@@ -121,11 +121,11 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#espacamento-def)]</sup>
 
   ```elixir
-  def alguma_func(algum_dado) do
+  def alguma_funcao(algum_dado) do
     dado_alterado = Module.function(algum_dado)
   end
 
-  def alguma_func do
+  def alguma_funcao do
     resultado
   end
 
