@@ -282,7 +282,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   # melhor, mas não recomendado - com indentação
   lista = [:primeiro_item, :segundo_item, :proximo_item,
-          :ultimo_item]
+           :ultimo_item]
 
   # recomendado - lista começa em uma linha própria
   # bom para listas menores
