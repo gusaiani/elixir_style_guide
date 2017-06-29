@@ -46,8 +46,6 @@ Sinta-se à vontade para enviar pull requests e sugestões, e seja parte da
 vibrante comunidade do Elixir.
 
 Se você está procurando outros projetos para contribuir, por gentileza confira o [site do gerenciador de pacotes Hex][Hex].
-If you're looking for other projects to contribute to please see the
-[Hex package manager site][Hex].
 
 <a name="traducoes"></a>
 Traduções deste guia estão disponíveis nas seguintes línguas:
