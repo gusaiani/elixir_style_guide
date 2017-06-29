@@ -261,13 +261,13 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```elixir
   # PIOR JEITO!
   # Isto é interpretado como String.strip("não" |> String.downcase).
-  String.strip "não" |> String.downcase
+  String.strip "não" |> String.downcase()
 
   # não recomendado
-  String.strip(alguma_string) |> String.downcase |> String.codepoints
+  String.strip(alguma_string) |> String.downcase() |> String.codepoints()
 
   # recomendado
-  alguma_string |> String.strip |> String.downcase |> String.codepoints
+  alguma_string |> String.strip() |> String.downcase() |> String.codepoints()
   ```
 
 * <a name="declaracao-list-multilinha"></a>
