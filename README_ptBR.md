@@ -650,7 +650,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="nome-de-macro-com-predicado-em-guards"></a>
-  Os nomes das macros com predicado (funções de geração de tempo de compilação que retornam um
+  Os nomes das macros com predicado (funções geradas na hora da compilação que retornam um
   valor booleano) _que podem ser usadas dentro de guards_ devem ser prefixados com `is_`.
   Para uma lista de expressões permitidas, veja nos documentos [Guard][Guard Expressions].
   <sup>[[link](#nome-de-macro-com-predicado-em-guards)]</sup>
