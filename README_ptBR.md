@@ -105,8 +105,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="sem-espacos"></a>
-  Não use espaço depois de operadores que não são palavras; ou ao redor do
-  operador range.
+  Não use espaço depois de operadores que não são palavras e recebem um argumento;
+  ou ao redor do operador range.
   <sup>[[link](#sem-espacos)]</sup>
 
   ```elixir
