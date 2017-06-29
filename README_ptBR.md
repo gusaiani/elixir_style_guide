@@ -201,6 +201,19 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
+* <a name="operador-pipe-parenteses"></a>
+  Use parênteses em funções de aridade um quando usando o operador
+  pipe (`|>`)
+  <sup>[[link](#operador-pipe-parenteses)]</sup>
+
+  ```elixir
+  # não recomendado
+  alguma_string |> String.downcase |> String.strip
+
+  # recomendado
+  alguma_string |> String.downcase() |> String.strip()
+  ```
+
 * <a name="operador-pipe"></a>
   Use o operador pipe (`|>`) para encadear funções.
   <sup>[[link](#operador-pipe)]</sup>
