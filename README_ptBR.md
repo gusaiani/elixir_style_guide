@@ -623,7 +623,6 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
 * <a name="camel-case"></a>
   Use `CamelCase` para módulos (mantenha siglas como HTTP, RFC, XML em maiúsculo).
-
   <sup>[[link](#camel-case)]</sup>
 
   ```elixir
