@@ -129,7 +129,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     resultado
   end
 
-  def alguma_outra_func do
+  def alguma_outra_funcao do
     outro_resultado
   end
 
