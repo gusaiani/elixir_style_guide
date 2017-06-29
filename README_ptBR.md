@@ -156,8 +156,6 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
 * <a name="dos-longos"></a>
   Se você usar a sintaxe `do:` com funções, e o corpo da função tiver uma linha longa, coloque o `do:` em uma nova linha com mais um nível de indentação do que a linha anterior.
-  function body is long, put the `do:` on a new line indented one level more
-  than the previous line.
   <sup>[[link](#dos-longos)]</sup>
 
   ```elixir
