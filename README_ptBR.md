@@ -202,7 +202,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="operador-pipe-parenteses"></a>
-  Use parênteses em funções de aridade um quando usando o operador
+  Use parênteses em funções de aridade um ao usar o operador
   pipe (`|>`)
   <sup>[[link](#operador-pipe-parenteses)]</sup>
 
