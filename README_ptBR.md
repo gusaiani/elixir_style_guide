@@ -1290,7 +1290,7 @@ projeto.
 [Guard Expressions]: http://elixir-lang.org/getting-started/case-cond-and-if.html#expressions-in-guard-clauses
 [Guia de Estilo Elixir]: https://github.com/christopheradams/elixir_style_guide
 [Hex]: https://hex.pm/packages
-[Inglês]: https://github.com/christopheradams/elixir_style_guide/README.md
+[Inglês]: https://github.com/christopheradams/elixir_style_guide/blob/master/README.md
 [Japonês]: https://github.com/kenichirow/elixir_style_guide/blob/master/README-jaJP.md
 [Licença]: http://creativecommons.org/licenses/by/3.0/deed.en_US
 [Atributos de Módulo]: http://elixir-lang.org/getting-started/module-attributes.html#as-annotations
