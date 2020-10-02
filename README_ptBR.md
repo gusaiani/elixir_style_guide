@@ -29,7 +29,7 @@
 * __[Participando](#participando)__
   * [Contribuindo](#contribuindo)
   * [Espalhe](#espalhe)
-* __[Cópias](#copias)__
+* __[Cópias](#cópias)__
   * [Licença](#licença)
   * [Atribuição](#atribuição)
 
