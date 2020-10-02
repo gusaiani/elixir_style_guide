@@ -2,7 +2,7 @@
 
 ## Índice
 
-* __[Introdução](#introducao)__
+* __[Introdução](#introdução)__
 * __[Sobre](#sobre)__
 * __[Formatação](#formatação)__
   * [Espaçamento](#espaçamento)
