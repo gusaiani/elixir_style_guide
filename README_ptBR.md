@@ -3,34 +3,39 @@
 ## Índice
 
 * __[Introdução](#introducao)__
-* __[O Guia de Estilo Elixir](#o-guia)__
-  * [Layout do Código](#layout-codigo)
-  * [Sintaxe](#sintaxe)
+* __[Sobre](#sobre)__
+* __[Formatação](#formatação)__
+  * [Espaçamento](#espaçamento)
+  * [Identação](#identação)
+  * [Parenteses](#parenteses)
+* __[O Guia de Estilo Elixir](#o-guia-de-estilo-elixir)__
+  * [Expressões](#expressões)
   * [Nomenclatura](#nomenclatura)
-  * [Comentários](#comentarios)
-    * [Anotações em Comentários](#anotacoes-comentarios)
-  * [Módulos](#modulos)
-  * [Documentação](#documentacao)
+  * [Comentários](#comentários)
+    * [Anotações em Comentários](#anotações-em-comentários)
+  * [Módulos](#módulos)
+  * [Documentação](#documentação)
   * [Typespecs](#typespecs)
   * [Structs](#structs)
-  * [Exceções](#excecoes)
-  * _Coleções_
+  * [Exceções](#exceções)
+  * [Coleções](#coleções)
   * [Strings](#strings)
   * _Expressões Regulares_
-  * [Metaprogramação](#metaprogramming)
+  * [Metaprogramação](#metaprogramação)
   * [Testes](#testes)
-  * [Guias de Estilo Alternativos](#guias-estilo-alternativos)
+* __[Recursos](#Recursos)__
+  * [Guias de Estilo Alternativos](#guias-de-estilo-alternativos)
   * [Ferramentas](#ferramentas)
 * __[Participando](#participando)__
   * [Contribuindo](#contribuindo)
   * [Espalhe](#espalhe)
 * __[Cópias](#copias)__
-  * [Licença](#licenca)
-  * [Atribuição](#atribuicao)
+  * [Licença](#licença)
+  * [Atribuição](#atribuição)
 
 ## Introdução
 
-> Arquitetura líquida. É como o jazz - você improvisa, você trabalha junto,
+> Arquitetura líquida. É como o jazz — você improvisa, você trabalha junto,
 > você se inspira nos outros, você cria alguma coisa, eles criam alguma coisa.
 >
 > —Frank Gehry
@@ -39,7 +44,7 @@ Estilo é importante.
 [Elixir] tem muito estilo, mas como todas as linguagens, ele pode ser estragado.
 Não estrague o estilo.
 
-## O Guia
+## Sobre
 
 Este é o guia de estilo da comunidade para a [Linguagem de Programação Elixir][Elixir].
 Sinta-se à vontade para enviar pull requests e sugestões, e seja parte da
@@ -50,31 +55,30 @@ Se você está procurando outros projetos para contribuir, por gentileza confira
 <a name="traducoes"></a>
 Traduções deste guia estão disponíveis nas seguintes línguas:
 
+* [Chinês Simplificado]
 * [Chinês Tradicional]
 * [Coreano]
 * [Espanhol]
+* [Francês]
 * [Inglês]
 * [Japonês]
 * [Português]
 
-### Layout do Código Fonte
+## Formatação
 
-* <a name="indentacao-com-espacos"></a>
-  Use dois **espaços** por nível de recuo.
-  Não use hard tabs.
-  <sup>[[link](#indentacao-com-espacos)]</sup>
+Elixir 1.6 introduziu as tasks [Code Formatter][Code Formatter] e [Mix format][Mix format]. É preferível o formatador para todos os novos projetos e códigos.
 
-  ```elixir
-  # não recomendado - quatro espaços
-  def alguma_funcao do
-      fazer_algo
-  end
+As regras nesta seção são aplicadas automaticamento pelo formatador de código, estão apresentados aqui como exemplos de estilo.
 
-  # recomendado
-  def alguma_funcao do
-    fazer_algo
-  end
-  ```
+### Espaçamento
+
+* <a name="espaco-branco-direita"></a>
+  Evite espaço em branco no fim das linhas
+  <sup>[[link](#espaco-branco-direita)]</sup>
+
+* <a name="eof-nova-linha"></a>
+  Termine todos os arquivos com uma nova linha.
+  <sup>[[link](#eof-nova-linha)]</sup>
 
 * <a name="quebra-de-linha"></a>
   Use quebra de linha estilo Unix (\*Usuários de BSD/Solaris/Linux/OSX por padrão
@@ -90,6 +94,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   git config --global core.autocrlf true
   ```
 
+* <a name="tamanho-linha"></a>
+  Limite de 98 caracteres por linha. Caso queira alterar, defina `:line_length` no arquivo `.formatter.exs`.
+  <sup>[[link](#tamanho-linha)]</sup>
+
 * <a name="espacos"></a>
   Use espaço ao redor de operadores, depois de vírgulas, dois pontos e ponto e vírgulas.
   Não coloque espaço ao redor de pares correspondentes como parênteses, colchetes e chaves.
@@ -101,7 +109,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   soma = 1 + 2
   {a, b} = {2, 3}
   [primeiro | resto] = [1, 2, 3]
-  Enum.map(["um", <<"dois">>, "três"], fn num -> IO.puts num end)
+  Enum.map(["um", <<"dois">>, "três"], fn num -> IO.puts(num) end)
   ```
 
 * <a name="sem-espacos"></a>
@@ -122,7 +130,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   def alguma_funcao(algum_dado) do
-    dado_alterado = Module.function(algum_dado)
+    algum_dado |> other_function() |> List.first()
   end
 
   def alguma_funcao do
@@ -142,25 +150,17 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="defs-de-uma-linha"></a>
-  ...mas coloque junto `def`s de uma linha só que correspondam à mesma função.
-  <sup>[[link](#defs-de-uma-linha)]</sup>
-
-  ```elixir
-  def alguma_funcao(nil), do: {:err, "Nenhum Valor"}
-  def alguma_funcao([]), do: :ok
-  def alguma_funcao([primeiro | resto]) do
-    alguma_funcao(resto)
-  end
-  ```
+* <a name="espacamento-defmodule"></a>
+  Não use uma linha em branco após um `defmodule`.
+  <sup>[[link](#espacamento-defmodule)]</sup>
 
 * <a name="dos-longos"></a>
   Se você usar a sintaxe `do:` em funções, e o corpo da função tiver uma linha longa, coloque o `do:` em uma nova linha com um nível de indentação a mais do que a linha anterior.
   <sup>[[link](#dos-longos)]</sup>
 
   ```elixir
-  def alguma_funcao(args),
-    do: Enum.map(args, fn(arg) -> arg <> " está em uma linha muito longa!" end)
+  def alguma_funcao([:foo, :bar, :baz] = args),
+    do: Enum.map(args, fn arg -> arg <> " está em uma linha muito longa!" end)
   ```
 
   Quando você usar a convenção acima e tiver mais que uma cláusula
@@ -173,45 +173,265 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
     do: :linha_muito_longa_aqui
 
   # recomendado
-  def alguma_funcao([]),
-    do: :vazio
+  def alguma_funcao([]), do: :vazio
+
   def alguma_funcao(_),
     do: :linha_muito_longa_aqui
   ```
 
-* <a name="multiplos-defs-funcao"></a>
-  Se você tiver mais que um `def` multilinha, não use `def`s de uma linha.
-  <sup>[[link](#multiplos-defs-funcao)]</sup>
+* <a name="adicione-linha-em-branco-apos-declaracao-multilinha"></a>
+  Adicione uma linha em branco após uma declaração multilinha
+  sinalizando que a declaração terminou.
+  <sup>[[link](#adicione-linha-em-branco-apos-declaracao-multilinha)]</sup>
+
+  ```elixir
+  # não recomendado
+  alguma_string =
+    "Oi"
+    |> String.downcase()
+    |> String.trim()
+  outra_string <> alguma_string
+
+  # recomendado
+  alguma_string =
+    "Oi"
+    |> String.downcase()
+    |> String.trim()
+
+  outra_string <> alguma_string
+  ```
+
+  ```elixir
+  # também não recomendado
+  alguma_coisa =
+    if x == 2 do
+      "Oi"
+    else
+      "Tchau"
+    end
+  String.downcase(alguma_coisa)
+
+  # recomendado
+  alguma_coisa =
+    if x == 2 do
+      "Oi"
+    else
+      "Tchau"
+    end
+
+  String.downcase(alguma_coisa)
+  ```
+  
+* <a name="declaracao-multilinha"></a>
+  Se uma list, map ou struct abrange múltiplas linhas, coloque cada elemento, assim como o colchete de abertura e fechamento em sua própria linha, e indente os elementos para mantê-los alinhados.
+  <sup>[[link](#declaracao-multilinha)]</sup>
+
+  ```elixir
+  # não recomendado
+  [:primeiro_item, :segundo_item, :proximo_item,
+  :ultimo_item]
+
+  # recomendado
+  [
+    :primeiro_item,
+    :segundo_item,
+    :proximo_item,
+    :ultimo_item
+  ]
+  ```
+
+* <a name="declaracao-com-colchetes"></a>
+  Ao atribuir uma list, map ou struct mantenha o colchete de abertura na mesma linha.
+  <sup>[[link](#declaracao-com-colchetes)]</sup>
+
+  ```elixir
+  # não recomendado
+  lista = 
+  [
+    :primeiro_item,
+    :segundo_item
+  ]
+
+  # recomendado
+  lista = [
+    :primeiro_item,
+    :segundo_item
+  ]
+  ```
+
+* <a name="case-multilinha"></a>
+  Se algum `case` ou `cond` precisar de mais de uma linha (por ultrapassar o limite de caracteres, mulitiplas expressões ou tamanho da cláusula, etc.), use a sintaxe de multilinha para todas as cláusulas e separe cada uma com uma linha em branco.
+  <sup>[[link](#case-multilinha)]</sup>
+
+  ```elixir
+  # não recomendado
+  case argumento do
+    true -> IO.puts("ok"); :ok
+    false -> :error
+  end
+
+  # não recomendado
+  case argumento do
+    true ->
+      IO.puts("ok")
+      :ok
+    false -> :error
+  end
+
+  # recomendado
+  case argumento do
+    true ->
+      IO.puts("ok")
+      :ok
+    false ->
+      :error
+  end
+  ```
+
+* <a name="lugar-comentario"></a>
+  Coloque comentários acima da linha que deseja comentar
+  <sup>[[link](#lugar-comentario)]</sup>
+
+  ```elixir
+  String.first(alguma_string) # não recomendado
+
+  # recomendado
+  String.first(alguma_string)
+  ```
+
+* <a name="espaco-comentario"></a>
+  Coloque um espaço entre o texto do comentário e o caracter de comentário `#`
+  <sup>[[link](#espaco-comentario)]</sup>
+
+  ```elixir
+  #não recomendado
+  String.first(alguma_string)
+
+  # recomendado
+  String.first(alguma_string)
+  ```
+
+### Identação
+
+* <a name="clausulas-with"></a>
+  Indente e alinhe cláusulas `with` sucessivas. Coloque o argumento `do:` em uma nova linha, alinhada com as cláusulas anteriores.
+  <sup>[[link](#clausulas-with)]</sup>
+
+  ```elixir
+  with {:ok, foo} <- fetch(opts, :foo),
+       {:ok, bar} <- fetch(opts, :bar),
+       do: {:ok, foo, bar}
+  ```
+  
+* <a name="with-else"></a>
+  Se a expressão `with` tiver um bloco `do` com mais de uma linha, ou tem uma opção `else`, use a sintaxe multilinha.
+  <sup>[[link](#with-else)]</sup>
+
+  ```elixir
+  with {:ok, foo} <- fetch(opts, :foo),
+       {:ok, bar} <- fetch(opts, :bar) do
+    {:ok, foo, bar}
+  else
+    :error ->
+      {:error, :bad_arg}
+  end
+  ```
+
+### Parenteses
+
+* <a name="operador-pipe-parenteses"></a>
+  Use parênteses em funções de aridade um ao usar o operador pipe (`|>`)
+  <sup>[[link](#operador-pipe-parenteses)]</sup>
+
+  ```elixir
+  # não recomendado
+  alguma_string |> String.downcase |> String.trim
+
+  # recomendado
+  alguma_string |> String.downcase() |> String.trim()
+  ```
+
+* <a name="nomes-de-funcao-com-parenteses"></a>
+  Nunca coloque um espaço entre o nome da função e a abertura dos parênteses.
+  <sup>[[link](#nomes-de-funcao-com-parenteses)]</sup>
+
+  ```elixir
+  # não recomendado
+  f (3 + 2)
+
+  # recomendado
+  f(3 + 2)
+  ```
+
+* <a name="chamada-de-funcao-com-parenteses"></a>
+  Use parênteses em chamadas de função, especialmente dentro de uma pipeline.
+  <sup>[[link](#chamada-de-funcao-com-parentese)]</sup>
+
+  ```elixir
+  # não recomendado
+  f 3
+
+  # recomendado
+  f(3)
+
+  # não recomendado e é convertido como rem(2, (3 |> g)), que não é o que você quer.
+  2 |> rem 3 |> g
+
+  # recomendado
+  2 |> rem(3) |> g
+  ```
+
+* <a name="colchetes-listas-palavras-chave"></a>
+  Omita colchetes de listas de palavras-chave sempre que eles forem opcionais.
+  <sup>[[link](#colchetes-listas-palavras-chave)]</sup>
+
+  ```elixir
+  # não recomendado
+  alguma_funcao(foo, bar, [a: "baz", b: "qux"])
+
+  # recomendado
+  alguma_funcao(foo, bar, a: "baz", b: "qux")
+  ```
+
+## O Guia de Estilo Elixir
+
+As regras nesta seção podem não ser aplicadas pelo formatador de código, mas são geralmente a prática preferida.
+
+### Expressões
+
+* <a name="def-linha-unica-com-def-multilinha"></a>
+  Mantenha `def`s de única linha juntos, mas separe do `def`s de multilinha com uma linha em branco.
+  <sup>[[link](#def-linha-unica-com-def-multilinha)]</sup>
+
+  ```elixir
+  def alguma_funcao(nil), do: {:error, "Sem valor"}
+  def alguma_funcao([]), do: :ok
+
+  def alguma_funcao([primeiro | resto]) do
+    alguma_funcao(resto)
+  end
+  ```
+
+* <a name="varios-def-multilinha"></a>
+  Caso tenha mais de um `def` multilinha, não use `def` de uma linha.
+  <sup>[[link](#colchetes-listas-palavras-chave)]</sup>
 
   ```elixir
   def alguma_funcao(nil) do
-    {:err, "Nenhum Valor"}
+    {:error, "Sem valor"}
   end
 
   def alguma_funcao([]) do
     :ok
   end
-
+  
   def alguma_funcao([primeiro | resto]) do
     alguma_funcao(resto)
   end
 
-  def alguma_funcao([primeiro | resto], opts) do
-    alguma_funcao(resto, opts)
+  def alguma_funcao([primeiro | resto], opcoes) do
+    alguma_funcao(resto, opcoes)
   end
-  ```
-
-* <a name="operador-pipe-parenteses"></a>
-  Use parênteses em funções de aridade um ao usar o operador
-  pipe (`|>`)
-  <sup>[[link](#operador-pipe-parenteses)]</sup>
-
-  ```elixir
-  # não recomendado
-  alguma_string |> String.downcase |> String.strip
-
-  # recomendado
-  alguma_string |> String.downcase() |> String.strip()
   ```
 
 * <a name="operador-pipe"></a>
@@ -220,27 +440,25 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # não recomendado
-  String.strip(String.downcase(alguma_string))
+  String.trim(String.downcase(alguma_string))
 
   # recomendado
-  alguma_string |> String.downcase |> String.strip
+  alguma_string |> String.downcase() |> String.trim()
 
   # Pipelines multilinha não recebem indentação extra
   alguma_string
-  |> String.downcase
-  |> String.strip
+  |> String.downcase()
+  |> String.trim()
 
   # Pipelines multilinha do lado direito de um pattern match
   # devem ser indentados em uma nova linha
   string_sanitizada =
     alguma_string
-    |> String.downcase
-    |> String.strip
+    |> String.downcase()
+    |> String.trim()
   ```
 
-  Mesmo este sendo o método recomendado, lembre-se que copiar e colar
-  pipelines multilinha no IEx pode resultar em erro de sintaxe, já que o
-  IEx vai avaliar a primeira linha sem perceber que a próxima linha tem um pipeline.
+  Mesmo este sendo o método recomendado, lembre-se que copiar e colar pipelines multilinha no IEx pode resultar em erro de sintaxe, já que o IEx vai avaliar a primeira linha sem perceber que a próxima linha tem um pipeline. Para evitar isso, coloque o código copiado entre parênteses.
 
 * <a name="evite-pipelines-solitarios"></a>
   Evite usar o operador pipe uma vez só.
@@ -248,69 +466,26 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # não recomendado
-  alguma_string |> String.downcase
+  alguma_string |> String.downcase()
+
+  System.version() |> Version.parse()
 
   # recomendado
   String.downcase(alguma_string)
-  ```
+  
+  Version.parse(System.version())
 
 * <a name="variaveis-sozinhas"></a>
   Use variáveis _sozinhas_ na primeira parte de uma cadeia de funções.
   <sup>[[link](#variaveis-sozinhas)]</sup>
 
   ```elixir
-  # PIOR JEITO!
-  # Isto é interpretado como String.strip("não" |> String.downcase).
-  String.strip "não" |> String.downcase()
-
   # não recomendado
-  String.strip(alguma_string) |> String.downcase() |> String.codepoints()
+  String.trim(alguma_string) |> String.downcase() |> String.codepoints()
 
   # recomendado
-  alguma_string |> String.strip() |> String.downcase() |> String.codepoints()
+  alguma_string |> String.trim() |> String.downcase() |> String.codepoints()
   ```
-
-* <a name="declaracao-list-multilinha"></a>
-  Ao declarar uma linha que abrange múltiplas linhas, comece a lista em uma nova linha,
-  e indente os elementos para mantê-los alinhados.
-  <sup>[[link](#declaracao-list-multilinha)]</sup>
-
-  ```elixir
-  # não recomendado - sem indentação
-  lista = [:primeiro_item, :segundo_item, :proximo_item,
-  :ultimo_item]
-
-  # melhor, mas não recomendado - com indentação
-  lista = [:primeiro_item, :segundo_item, :proximo_item,
-           :ultimo_item]
-
-  # recomendado - lista começa em uma linha própria
-  # bom para listas menores
-  lista =
-    [:primeiro_item, :segundo_item, :proximo_item,
-     :ultimo_item]
-
-  # também recomendado - com cada elemento em uma linha
-  # bom para listas longas, listas com elementos longos ou listas com comentários
-  lista = [
-    :primeiro_item,
-    :segundo_item,
-    :proximo_item,
-    # comentário
-    :muitos_itens,
-    :ultimo_item
-  ]
-  ```
-
-* <a name="espaco-branco-direita"></a>
-  Evite espaço em branco no fim das linhas
-  <sup>[[link](#espaco-branco-direita)]</sup>
-
-* <a name="eof-nova-linha"></a>
-  Termine todos os arquivos com uma nova linha.
-  <sup>[[link](#eof-nova-linha)]</sup>
-
-### Sintaxe
 
 * <a name="parenteses"></a>
   Use parênteses quando um `def` tiver argumentos, e omita os parênteses quando ele não tiver argumentos.
@@ -336,68 +511,6 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="adicione-linha-em-branco-apos-declaracao-multilinha"></a>
-  Adicione uma linha em branco após uma declaração multilinha
-  sinalizando que a declaração terminou.
-  <sup>[[link](#adicione-linha-em-branco-apos-declaracao-multilinha)]</sup>
-
-  ```elixir
-  # não recomendado
-  alguma_string =
-    "Oi"
-    |> String.downcase
-    |> String.strip
-  outra_string <> alguma_string
-
-  # recomendado
-  alguma_string =
-    "Oi"
-    |> String.downcase
-    |> String.strip
-
-  outra_string <> alguma_string
-  ```
-
-  ```elixir
-  # também não recomendado
-  alguma_coisa =
-    if x == 2 do
-      "Oi"
-    else
-      "Tchau"
-    end
-  String.downcase(alguma_coisa)
-
-  # recomendado
-  alguma_coisa =
-    if x == 2 do
-      "Oi"
-    else
-      "Tchau"
-    end
-
-  String.downcase(alguma_coisa)
-  ```
-
-* <a name="do-com-if-unless-multilinha"></a>
-  Nunca use `do:` para `if` ou `unless` multilinha.
-  <sup>[[link](#do-com-if-unless-multilinha)]</sup>
-
-  ```elixir
-  # não recomendado
-  if alguma_condicao, do:
-    # uma linha de código
-    # outra linha de código
-    # note que este bloco não tem end
-
-  # recomendado
-  if alguma_condicao do
-    # algumas
-    # linhas
-    # de código
-  end
-  ```
-
 * <a name="do-de-uma-linha-só-if-unless"></a>
   Use `do:` para `if/unless` de uma linha só.
   <sup>[[link](#do-de-uma-linha-só-if-unless)]</sup>
@@ -414,17 +527,17 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   # não recomendado
-  unless successo? do
-    IO.puts 'falha'
+  unless successo do
+    IO.puts('falha')
   else
-    IO.puts 'successo'
+    IO.puts('successo')
   end
 
   # recomendado
-  if successo? do
-    IO.puts 'successo'
+  if successo do
+    IO.puts('successo')
   else
-    IO.puts 'falha'
+    IO.puts('falha')
   end
   ```
 
@@ -438,8 +551,10 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   cond do
     1 + 2 == 5 ->
       "Não"
+
     1 + 3 == 5 ->
       "Oh, oh"
+
     :else ->
       "OK"
   end
@@ -448,73 +563,12 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   cond do
     1 + 2 == 5 ->
       "Não"
+
     1 + 3 == 5 ->
       "Oh, oh"
+
     true ->
       "OK"
-  end
-  ```
-
-* <a name="nomes-de-funcao-com-parenteses"></a>
-  Nunca coloque um espaço entre o nome da função e a abertura dos parênteses.
-  <sup>[[link](#nomes-de-funcao-com-parenteses)]</sup>
-
-  ```elixir
-  # não recomendado
-  f (3 + 2) + 1
-
-  # recomendado
-  f(3 + 2) + 1
-  ```
-
-* <a name="chamada-de-funcao-com-parenteses"></a>
-  Use parênteses em chamadas de função, especialmente dentro de uma pipeline.
-  <sup>[[link](#chamada-de-funcao-com-parentese)]</sup>
-
-  ```elixir
-  # não recomendado
-  f 3
-
-  # recomendado
-  f(3)
-
-  # não recomendado e é convertido como rem(2, (3 |> g)), que não é o que você quer.
-  2 |> rem 3 |> g
-
-  # recomendado
-  2 |> rem(3) |> g
-  ```
-
-* <a name="chamadas-de-macro-e-parênteses"></a>
-  Omita parênteses em chamadas de macro onde um bloco `do` é passado.
-  <sup>[[link](#chamadas-de-macro-e-parênteses)]</sup>
-
-  ```elixir
-  # não recomendado
-  quote(do
-    foo
-  end)
-
-  # recomendado
-  quote do
-    foo
-  end
-  ```
-
-* <a name="parenteses-e-expressoes-de-funcoes"></a>
-  Parênteses são opcionais em chamadas de função (fora de pipelines) quando o
-  último argumento é uma expressão de função.
-  <sup>[[link](#parenteses-e-expressoes-de-funcoes)]</sup>
-
-  ```elixir
-  # recomendado
-  Enum.reduce(1..10, 0, fn x, acc ->
-    x + acc
-  end)
-
-  # também recomendado
-  Enum.reduce 1..10, 0, fn x, acc ->
-    x + acc
   end
   ```
 
@@ -530,62 +584,14 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   # não recomendado
   def minha_funcao do
-    fazer_algo # isto é uma variável ou uma chamada de função?
+    # isto é uma variável ou uma chamada de função?
+    fazer_algo
   end
 
   # recomendado
   def minha_funcao do
-    fazer_algo() # isto claramente é uma chamada de função
-  end
-  ```
-
-* <a name="sintaxe-listas-palavra-chave"></a>
-  Sempre use a sintaxe simplificada para listas de palavras-chave.
-  <sup>[[link](#sintaxe-listas-palavra-chave)]</sup>
-
-  ```elixir
-  # não recomendado
-  algum_valor = [{:a, "baz"}, {:b, "qux"}]
-
-  # recomendado
-  algum_valor = [a: "baz", b: "qux"]
-  ```
-
-* <a name="colchetes-listas-palavras-chave"></a>
-  Omita colchetes de listas de palavras-chave sempre que eles forem opcionais.
-  <sup>[[link](#colchetes-listas-palavras-chave)]</sup>
-
-  ```elixir
-  # não recomendado
-  alguma_funcao(foo, bar, [a: "baz", b: "qux"])
-
-  # recomendado
-  alguma_funcao(foo, bar, a: "baz", b: "qux")
-  ```
-
-* <a name="clausulas-with"></a>
-  Indente e alinhe cláusulas `with` sucessivas.
-  Coloque o argumento `do:` em uma nova linha, indentada normalmente.
-  <sup>[[link](#clausulas-with)]</sup>
-
-  ```elixir
-  with {:ok, foo} <- fetch(opts, :foo),
-       {:ok, bar} <- fetch(opts, :bar),
-    do: {:ok, foo, bar}
-  ```
-
-* <a name="with-else"></a>
-  Se a expressão `with` tiver um bloco `do` com mais de uma linha, ou tem uma
-  opção `else`, use a sintaxe multilinha.
-  <sup>[[link](#with-else)]</sup>
-
-  ```elixir
-  with {:ok, foo} <- fetch(opts, :foo),
-       {:ok, bar} <- fetch(opts, :bar) do
-    {:ok, foo, bar}
-  else
-    :error ->
-      {:error, :bad_arg}
+    # isto claramente é uma chamada de função
+    fazer_algo()
   end
   ```
 
@@ -656,9 +662,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   <sup>[[link](#nome-de-macro-com-predicado-em-guards)]</sup>
 
   ```elixir
-  defmacro is_cool(var) do
-    quote do: unquote(var) == "cool"
-  end
+  defguard is_cool(var) when var == "cool"
+  defguardp is_very_cool(var) when var == "very cool"
   ```
 
 * <a name="nome-de-macro-de-predicado-sem-guards"></a>
@@ -691,18 +696,8 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   através de fluxo de controle, estrutura e nomenclaturas.
   <sup>[[link](#codigo-expressivo)]</sup>
 
-* <a name="comentários-espacos-esquerda"></a>
-  Use um espaço entre o `#` do comentário e o texto do comentário.
-  <sup>[[link](#comentários-espacos-esquerda)]</sup>
-
-  ```elixir
-  String.first(alguma_string) #não recomendado
-  String.first(alguma_string) # recomendado
-  ```
-
 * <a name="gramatica-comentario"></a>
-  Comentários de mais de uma palavra começam com maiúscula, e frases recebem pontuação.
-  Use [um espaço][Sentence Spacing] depois dos pontos finais.
+  Comentários de mais de uma palavra começam com maiúscula, e frases recebem pontuação. Use [um espaço][Sentence Spacing] depois dos pontos finais.
   <sup>[[link](#gramatica-comentario)]</sup>
 
   ```elixir
@@ -714,16 +709,18 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   # Use pontuação em frases completas.
   ```
 
+* <a name="limite-comentario"></a>
+  Limite comentário a 100 caracteres por linha.
+  <sup>[[link](#limite-comentario)]</sup>
+
 #### Anotações em Comentários
 
 * <a name="anotacoes"></a>
-  Anotações normalmente devem vir na linha imediatamente acima do
-  respectivo código.
+  Anotações normalmente devem vir na linha imediatamente acima do respectivo código.
   <sup>[[link](#anotacoes)]</sup>
 
 * <a name="palavra-chave-anotacao"></a>
-  A palavra-chave de anotação é inteira em maiúsculas, seguida por dois-pontos e espaço,
-  e então uma descrição do problema.
+  A palavra-chave de anotação é inteira em maiúsculas, seguida por dois-pontos e espaço, e então uma descrição do problema.
   <sup>[[link](#palavra-chave-anotacao)]</sup>
 
   ```elixir
@@ -739,7 +736,9 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
   ```elixir
   start_task()
-  Process.sleep(5000) # FIXME
+  
+  # FIXME
+  Process.sleep(5000)
   ```
 
 * <a name="notas-todo"></a>
@@ -801,14 +800,6 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   end
   ```
 
-* <a name="espacamento-defmodule"></a>
-  Não use uma linha em branco após um `defmodule`.
-  <sup>[[link](#espacamento-defmodule)]</sup>
-
-* <a name="espacamento-blocos-module"></a>
-  Use uma linha em branco após blocos de código em módulos.
-  <sup>[[link](#espacamento-blocos-module)]</sup>
-
 * <a name="ordenacao-atributos-modulo"></a>
   Liste atributos e diretivas de módulo na seguinte ordem:
   <sup>[[link](#ordenacao-atributos-modulo)]</sup>
@@ -819,16 +810,15 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   1. `import`
   1. `alias`
   1. `require`
+  1. `@module_attribute`
   1. `defstruct`
   1. `@type`
-  1. `@module_attribute`
   1. `@callback`
   1. `@macrocallback`
   1. `@optional_callbacks`
+  1. `defmacro`, `defmodule`, `defguard`, `def`, etc.  
 
-  Adicione uma linha em branco entre cada agrupamento, e ordene os termos
-  (como nomes de módulos) alfabeticamente.
-  Abaixo um exemplo geral de como você deve ordenar as coisas em seus módulos:
+  Adicione uma linha em branco entre cada agrupamento, e ordene os termos (como nomes de módulos) alfabeticamente. Abaixo um exemplo geral de como você deve ordenar as coisas em seus módulos:
 
   ```elixir
   defmodule MeuModulo do
@@ -848,26 +838,36 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
 
     require Integer
 
-    defstruct name: nil, params: []
-
-    @type params :: [{binary, binary}]
-
     @module_attribute :foo
     @other_attribute 100
 
+    defstruct [:name, params: []]
+
+    @type params :: [{binary, binary}]
+
     @callback alguma_funcao(termo) :: :ok | {:error, termo}
 
-    @macrocallback nome_macro(termo) :: Macro.t
+    @macrocallback nome_macro(termo) :: Macro.t()
 
     @optional_callbacks nome_macro: 1
 
-    ...
+    @doc false
+    defmacro __using__(_opts), do: :no_op
+
+    @doc """
+    Determina quando o termo é `:ok`. Permitido em guards.
+    """
+    defguard is_ok(termo) when term == :ok
+
+    @impl true
+    def init(state), do: {:ok, state}
+
+    # Defina outras funções aqui.
   end
   ```
 
 * <a name="pseudo-variavel-modulo"></a>
-  Use a pseudo variável `__MODULE__` quando um módulo se referir a si mesmo.
-  Isto previne que tenhamos que atualizar auto-referências quando o nome do módulo mudar.
+  Use a pseudo variável `__MODULE__` quando um módulo se referir a si mesmo. Isto previne que tenhamos que atualizar auto-referências quando o nome do módulo mudar.
   <sup>[[link](#pseudo-variavel-modulo)]</sup>
 
   ```elixir
@@ -879,8 +879,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="alias-modulos-auto-referentes"></a>
-  Se você quiser um nome mais bonito para uma auto-referência de módulo,
-  crie um alias.
+  Se você quiser um nome mais bonito para uma auto-referência de módulo, crie um alias.
   <sup>[[link](#alias-modulos-auto-referentes)]</sup>
 
   ```elixir
@@ -894,8 +893,7 @@ Traduções deste guia estão disponíveis nas seguintes línguas:
   ```
 
 * <a name="nomes-modulo-repetitivos"></a>
-  Evite repetir fragmentos em nomes e namespaces de módulos.
-  Isto melhora a legibilidade e elimina [aliases ambíguos][Conflicting Aliases].
+  Evite repetir fragmentos em nomes e namespaces de módulos. Isto melhora a legibilidade e elimina [aliases ambíguos][Conflicting Aliases].
   <sup>[[link](#nomes-modulo-repetitivos)]</sup>
 
   ```elixir
@@ -922,17 +920,9 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
 
   ```elixir
   # não recomendado
-
-  defmodule AlgumModulo do
-
-    @moduledoc """
-    Informação sobre o módulo.
-    """
-    ...
-  end
-
   defmodule OutroModulo do
     use AlgumModulo
+
     @moduledoc """
     Informação sobre o módulo.
     """
@@ -940,11 +930,12 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
   end
 
   # recomendado
-
-  defmodule AlgumModulo do
+  defmodule TerceiroModulo do
     @moduledoc """
     Informação sobre o módulo.
     """
+
+    use AlgumModulo
     ...
   end
   ```
@@ -966,7 +957,6 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
 
   ```elixir
   # não recomendado
-
   defmodule AlgumModulo do
     @moduledoc """
     Informação sobre o módulo.
@@ -990,7 +980,6 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
 
   ```elixir
   # não recomendado
-
   defmodule AlgumModulo do
     @moduledoc "Informação sobre o módulo."
   end
@@ -1020,12 +1009,9 @@ Documentação em Elixir (quando lida seja no `iex` com `h` seja gerada com
 
 ### Typespecs
 
-Typespecs são notações para declarar tipos e especificações,
-para documentação ou para o Dialyzer (ferramenta de
-análise estática).
+Typespecs são notações para declarar tipos e especificações, para documentação ou para o Dialyzer (ferramenta de análise estática).
 
-Tipos customizados devem ser definidos no topo do módulo com as outras
-diretivas (veja [Módulos](#modulos)).
+Tipos customizados devem ser definidos no topo do módulo com as outras diretivas (veja [Módulos](#módulos)).
 
 * <a name="typedocs"></a>
   Aplique definições `@typedoc` e `@type` juntas, e separe cada par
@@ -1047,46 +1033,44 @@ diretivas (veja [Módulos](#modulos)).
   ```
 
 * <a name="tipos-uniao"></a>
-  Se um tipo de união for longo demais para caber em um só linha, adicione
-  uma nova linha e indente com espaços para alinhar os tipos.
+  Se um tipo de união for longo demais para caber em um só linha, adicione uma nova linha e indente com espaços para alinhar os tipos.
   <sup>[[link](#tipos-uniao)]</sup>
 
   ```elixir
-  # não recomendado - sem indentação
-  @type tipo_de_uniao_longo :: algum_tipo | outro_tipo | algum_outro_tipo |
-  um_ultimo_tipo
+  # não recomendado
+  @type tipo_de_uniao_longo :: 
+          algum_tipo | outro_tipo | algum_outro_tipo | um_ultimo_tipo
 
   # recomendado
-  @type tipo_de_uniao_longo :: algum_tipo | outro_tipo | algum_outro_tipo |
-                               um_ultimo_tipo
+  @type tipo_de_uniao_longo :: 
+          algum_tipo
+          | outro_tipo
+          | algum_outro_tipo
+          | um_ultimo_tipo
 
-  # também recomendado - um tipo por linha
-  @type tipo_de_uniao_longo :: algum_tipo |
-                               outro_tipo |
-                               algum_outro_tipo |
-                               um_ultimo_tipo
   ```
 
 * <a name="nomeando-tipos-principais"></a>
-  Nomeie como `t` o tipo principal de um módulo, por exemplo: a especificação
-  de tipo para um struct.
+  Nomeie como `t` o tipo principal de um módulo, por exemplo: a especificação de tipo para um struct.
   <sup>[[link](#nomeando-tipos-principais)]</sup>
 
   ```elixir
-  defstruct nome: nil, params: []
+  defstruct [:nome, params: []]
 
   @type t :: %__MODULE__{
-    nome: String.t | nil,
-    params: Keyword.t
+    nome: String.t() | nil,
+    params: Keyword.t()
   }
   ```
 
 * <a name="espacamento-specs"></a>
-  Escreva especificações logo acima da definicação de uma função, sem separá-los
-  com linha em branco.
+  Escreva especificações logo acima da definicação de uma função, sem separá-los com linha em branco.
   <sup>[[link](#espacamento-specs)]</sup>
 
   ```elixir
+  @doc """
+  Alguma descrição da função
+  """
   @spec alguma_funcao(termo) :: result
   def alguma_funcao(algum_dado) do
     {:ok, algum_dado}
@@ -1096,8 +1080,7 @@ diretivas (veja [Módulos](#modulos)).
 ### Structs
 
 * <a name="defaults-campos-struct-nil"></a>
-  Use uma lista de átomos para campos de struct que tenham default de `nil`,
-  seguidos por outras palavras-chave.
+  Use uma lista de átomos para campos de struct que tenham default de `nil`, seguidos pelas outras palavras-chave.
   <sup>[[link](#defaults-campos-struct-nil)]</sup>
 
   ```elixir
@@ -1109,8 +1092,7 @@ diretivas (veja [Módulos](#modulos)).
   ```
 
 * <a name="colchetes-defstruct"></a>
-  Omita colchetes quando o argumento de um `defstruct` for uma lista
-  de palavras-chave.
+  Omita colchetes quando o argumento de um `defstruct` for uma lista de palavras-chave.
   <sup>[[link](#colchetes-defstruct)]</sup>
 
   ```elixir
@@ -1125,13 +1107,26 @@ diretivas (veja [Módulos](#modulos)).
   ```
 
 * <a name="linhas-defstruct-adicionais"></a>
-  Indente linhas adicionais de defstruct, mantendo as primeiras chaves alinhadas.
-  aligned.
+  Indente linhas adicionais de defstruct, mantendo cada elemento em linhas separadas  e alinhados.
   <sup>[[link](#linhas-defstruct-adicionais)]</sup>
 
   ```elixir
-  defstruct foo: "teste", bar: true, baz: false,
-            qux: false, quux: 1
+  defstruct foo: "teste",
+            bar: true,
+            baz: false,
+            qux: false,
+            quux: 1
+  ```
+
+* <a name="linhas-defstruct-adicionais-colchetes"></a>
+  Formate como lista multilinha structs multilinha que precisa de colchetes.
+  <sup>[[link](#linhas-defstruct-adicionais)]</sup>
+
+  ```elixir
+  defstruct [
+    :nome,
+    params: [],
+    ativo: true
   ```
 
 ### Exceções
@@ -1157,8 +1152,7 @@ diretivas (veja [Módulos](#modulos)).
   ```
 
 * <a name="mensagens-erro-minusculas"></a>
-  Use minúsculas em mensagens de erro quando emitindo exceções, sem pontuação
-  ao final.
+  Use minúsculas em mensagens de erro quando emitindo exceções, sem pontuação ao final.
   <sup>[[link](#mensagens-erro-minusculas)]</sup>
 
   ```elixir
@@ -1171,13 +1165,46 @@ diretivas (veja [Módulos](#modulos)).
 
 ### Coleções
 
-A secão de Coleções do guia ainda não foi adicionada.
+* <a name="sintaxe-especial-lista"></a>
+  Sempre usar a sintaxe especial para lista de palavras-chave.
+  <sup>[[link](#sintaxe-especial-lista)]</sup>
+
+  ```elixir
+  # não recomendado
+  algum_valor = [{:a, "baz"}, {:b, "qux"}]
+
+  # recomendado
+  algum_valor = [a: "baz", b: "qux"]
+  ```
+
+* <a name="map-todos-atomos"></a>
+  Use a sintaxe abreviada chave-valor para maps onde todos as chaves são átomos.
+  <sup>[[link](#map-todos-atomos)]</sup>
+
+  ```elixir
+  # não recomendado
+  %{:a => 1, :b => 2, :c => 0}
+
+  # recomendado
+  %{a: 1, b: 2, c: 0}
+  ```
+
+* <a name="map-todos-atomos"></a>
+  Use a sintaxe verbosa chave-valor para maps se qualquer chave não for átomo.
+  <sup>[[link](#map-todos-atomos)]</sup>
+
+  ```elixir
+  # não recomendado
+  %{"c" => 0, a: 1, b: 2}
+
+  # recomendado
+  %{:a => 1, :b => 2, "c" => 0}
+  ```
 
 ### Strings
 
 * <a name="match-strings-com-concatenador"></a>
-  Dê match em strings usando o concatenador de strings, e não
-  padrões binários.
+  Dê match em strings usando o concatenador de strings, e não padrões binários.
   <sup>[[link](#match-strings-com-concatenador)]</sup>
 
   ```elixir
@@ -1208,31 +1235,25 @@ _A secão de Coleções do guia ainda não foi adicionada._
   <sup>[[link](#testando-ordem-assert)]</sup>
 
   ```elixir
-  # recomendado - resultado esperado à direita
-  assert minha_funcao(1) == true
-  assert minha_funcao(2) == false
-
-  # não recomendado - ordem inconsistente
-  assert minha_funcao(1) == true
+  # não recomendado
   assert false == minha_funcao(2)
+
+  # recomendado
+  assert minha_funcao(1) == true
 
   # obrigatório - a asserção é um pattern match
   assert {:ok, expected} = minha_funcao(3)
   ```
 
+## Recursos
+
 ### Guias de Estilo Alternativos
 
 * [Aleksei Magusev's Elixir Style Guide](https://github.com/lexmag/elixir-style-guide#readme)
-  — Um guia de estilo Elixir opiniático inspirado nas práticas encontradas
-  nas bibliotecas 'core' do Elixir.
-  Desenvolvido por [Aleksei Magusev](https://github.com/lexmag) e
-  [Andrea Leopardi](https://github.com/whatyouhide), membros da equipe principal do Elixir.
-  Apesar do projeto do Elixir não aderir a um guia de estilo específico,
-  este é o guia mais próximo de suas convenções.
+  — Um guia de estilo Elixir opinativo inspirado nas práticas encontradas nas bibliotecas 'core' do Elixir. Desenvolvido por [Aleksei Magusev](https://github.com/lexmag) e [Andrea Leopardi](https://github.com/whatyouhide), membros da equipe principal do Elixir. Apesar do projeto do Elixir não aderir a um guia de estilo específico, este é o guia mais próximo de suas convenções.
 
 * [Credo's Elixir Style Guide](https://github.com/rrrene/elixir-style-guide#readme)
-  — Guia de Estilo para a linguagem Elixir, implementada pelo
-  [Credo](http://credo-ci.org), ferramenta de análise estática de código.
+  — Guia de Estilo para a linguagem Elixir, implementada pelo [Credo](http://credo-ci.org), ferramenta de análise estática de código.
 
 ### Ferramentas
 
@@ -1298,3 +1319,9 @@ projeto.
 [Guia de Estilo da Comunidade Ruby]: https://github.com/bbatsov/ruby-style-guide
 [Sentence Spacing]: http://en.wikipedia.org/wiki/Sentence_spacing
 [Stargazers]: Use://github.com/christopheradams/elixir_style_guide/stargazers
+[Code Formatter]: https://hexdocs.pm/elixir/Code.html#format_string!/2
+[Mix format]: https://hexdocs.pm/mix/Mix.Tasks.Format.html
+[Guard Expressions]: https://hexdocs.pm/elixir/guards.html#list-of-allowed-expressions
+[Elixir Style Guide]: https://github.com/christopheradams/elixir_style_guide
+[Chinês Simplificado]: https://github.com/geekerzp/elixir_style_guide/blob/master/README-zhCN.md
+[Francês]: https://github.com/ronanboiteau/elixir_style_guide/blob/master/README_frFR.md
